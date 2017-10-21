@@ -35,9 +35,6 @@
               <a class="nav-link" href="#">Calendar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#">Profile</a>
             </li>
              <li class="nav-item">
