@@ -1,17 +1,17 @@
 
 public class Company {
 
-	private String companyName;
+	private String companyname;
 	private String email;
 	private String password;
 	private String website;
 	private String description;
 	
-	public String getCompanyName() {
-		return companyName;
+	public String getCompanyname() {
+		return companyname;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
 	public String getEmail() {
 		return email;

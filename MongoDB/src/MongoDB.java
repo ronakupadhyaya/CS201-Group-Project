@@ -10,12 +10,12 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 
 public class MongoDB {
-	MongoClientURI mongoURI;
-	MongoClient mongoClient;
-	MongoDatabase mongoDatabase;
-	MongoIterable<String> mongoCollectionGames;
+	private static MongoClientURI mongoURI;
+	private static MongoClient mongoClient;
+	private static MongoDatabase mongoDatabase;
+	private static MongoIterable<String> mongoCollectionGames;
 
-	public MongoDB(String stringURI) {
+	public static void connect(String stringURI) {
 
 		mongoURI = new MongoClientURI(stringURI);
 		mongoClient = new MongoClient(mongoURI);
@@ -24,11 +24,12 @@ public class MongoDB {
 
 	}
 	
-	public void signUpUser(User user) {
+	public static void signUpUser(User user) {
 		
 		String firstName = user.getFirstName();
 		String lastName = user.getLastName();
 		String email = user.getEmail();
+		String username = user.getUsername();
 		String password = user.getPassword();
 		String degree = user.getDegree();
 		String major = user.getMajor();
@@ -37,61 +38,60 @@ public class MongoDB {
 		ArrayList<String> workExperience = user.getWorkExperience();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");
-		Document mongoDocument = new Document("First Name", firstName)
-									  .append("Lat Name", lastName)
-									  .append("Email", email)
-									  .append("Password", password)
-									  .append("Degree", degree)
-									  .append("Major", major)
-									  .append("Job Types", jobTypes)
-									  .append("Languages", languages)
-									  .append("Work Experience", workExperience);
+		Document mongoDocument = new Document("firstName", firstName)
+									  .append("lastName", lastName)
+									  .append("email", email)
+									  .append("username", username)
+									  .append("password", password)
+									  .append("degree", degree)
+									  .append("major", major)
+									  .append("jobTypes", jobTypes)
+									  .append("languages", languages)
+									  .append("workExperience", workExperience);
 		mongoCollection.insertOne(mongoDocument);
 		
 		return;
 		
 	}
 	
-	public void signUpCompany(Company company) {
+	public static void signUpCompany(Company company) {
 		
-		String companyName = company.getCompanyName();
+		String companyname = company.getCompanyname();
 		String email = company.getEmail();
 		String password = company.getPassword();
 		String website = company.getWebsite();
 		String description = company.getDescription();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("companies");
-		Document mongoDocument = new Document("Company Name", companyName)
-									  .append("Email", email)
-									  .append("Password", password)
-									  .append("Website", website)
-									  .append("Description", description);
+		Document mongoDocument = new Document("companyname", companyname)
+									  .append("email", email)
+									  .append("password", password)
+									  .append("website", website)
+									  .append("description", description);
 		mongoCollection.insertOne(mongoDocument);
 		
 		return;
 		
 	}	
 
-	public boolean login(String receivedUsername, String receviedPassword) {
+	public static boolean userLogin(String receivedUsername, String receviedPassword) {
 
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
-		Document findQuery = new Document("Username", new Document("$eq", receivedUsername));
+		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
 		
-		String username = "";
 		String password = "";
 		
 		try {
-			while (mongoCursor.hasNext()) {
+			if(mongoCursor.hasNext()) {
 				Document mongoDocument = mongoCursor.next();
-				username = (String)mongoDocument.get("Username");
-				password = (String)mongoDocument.get("Password");
+				password = (String)mongoDocument.get("password");
 			}
 		} finally {
 			mongoCursor.close();
 		}
 		
-		if((username != "") && (password == receviedPassword)) {
+		if(password == receviedPassword) {
 			return true;
 		}
 
@@ -99,7 +99,32 @@ public class MongoDB {
 
 	}
 	
-	public void insertJobCompany(Job job) {
+	public static boolean companyLogin(String receivedCompanyname, String receviedPassword) {
+
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
+		Document findQuery = new Document("companyname", new Document("$eq", receivedCompanyname));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		
+		String password = "";
+		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				password = (String)mongoDocument.get("password");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+		
+		if(password == receviedPassword) {
+			return true;
+		}
+
+		return false;
+
+	}
+	
+	public static void addJobCompany(Job job) {
 		
 		String company = job.getCompany();
 		String jobTitle = job.getJobTitle();
@@ -110,46 +135,48 @@ public class MongoDB {
 		ArrayList<String> languages = job.getLanguages();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("jobs");
-		Document mongoDocument = new Document("Company", company)
-									  .append("Job Title", jobTitle)
-									  .append("Locations", locations)
-									  .append("Job Types", jobTypes)
-									  .append("Degree", degree)
-									  .append("Major", major)
-									  .append("Languages", languages);
+		Document mongoDocument = new Document("company", company)
+									  .append("jobTitle", jobTitle)
+									  .append("locations", locations)
+									  .append("jobTypes", jobTypes)
+									  .append("degree", degree)
+									  .append("major", major)
+									  .append("languages", languages);
 		mongoCollection.insertOne(mongoDocument);
 		
 		return;
 		
 	}
 	
-	public void saveJobUser(User user, Job job) {
-		
-		String firstName = user.getFirstName();
-		String lastName = user.getLastName();
-		
-		String company = job.getCompany();
-		String jobTitle = job.getJobTitle();
-		ArrayList<String> locations = job.getLocations();
-		ArrayList<String> jobTypes = job.getJobTypes();
-		String degree = job.getDegree();
-		String major = job.getMajor();
-		ArrayList<String> languages = job.getLanguages();
+//	Document updateQuery = new Document("song", "One Sweet Day");
+//    songs.updateOne(updateQuery, new Document("$set", new Document("artist", "Mariah Carey ft. Boyz II Men")));
+	
+	public static void addJobUser(String receivedUsername, Job job) {
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");
-		Document mongoDocument = new Document("Company", company)
-									  .append("Job Title", jobTitle)
-									  .append("Locations", locations)
-									  .append("Job Types", jobTypes)
-									  .append("Degree", degree)
-									  .append("Major", major)
-									  .append("Languages", languages);
+		String username = receivedUsername;
+		
+		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		ArrayList<Job> savedJobs = null;		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				savedJobs = (ArrayList<Job>)mongoDocument.get("savedJobs");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+		
+		savedJobs.add(job);
+		Document updateQuery = new Document("username", username);
+		mongoCollection.updateOne(updateQuery, new Document("$set", new Document("savedJobs", savedJobs)));
 		
 		return;
 		
 	}
 	
-	public ArrayList<Job> searchJob(Job jobFilter) {
+	public static ArrayList<Job> searchJob(Job jobFilter) {
 		
 		String company = jobFilter.getCompany();
 		String jobTitle = jobFilter.getJobTitle();
@@ -160,13 +187,13 @@ public class MongoDB {
 		ArrayList<String> languages = jobFilter.getLanguages();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("jobs");
-		Document findQuery = new Document("Company", new Document("$eq", company))
-								  .append("Job Title", new Document("$eq", jobTitle))
-								  .append("Locations", new Document("$eq", locations))
-								  .append("Job Types", new Document("$eq", jobTypes))
-								  .append("Degree", new Document("$eq", degree))
-								  .append("Major", new Document("$eq", major))
-								  .append("Languages", new Document("$eq", languages));					  			
+		Document findQuery = new Document("company", new Document("$eq", company))
+								  .append("jobTitle", new Document("$eq", jobTitle))
+								  .append("locations", new Document("$eq", locations))
+								  .append("jobTypes", new Document("$eq", jobTypes))
+								  .append("degree", new Document("$eq", degree))
+								  .append("major", new Document("$eq", major))
+								  .append("languages", new Document("$eq", languages));					  			
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
 		
 		ArrayList<Job> returnJobs = null;
@@ -192,6 +219,113 @@ public class MongoDB {
 		
 	}
 	
+	public static User userProfilePage(String receivedUsername) {
+		
+		User user = new User();
+		
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
+		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		
+		String firstName = "";
+		String lastName = "";
+		String email = "";
+		String username = "";
+		String password = "";
+		String degree = "";
+		String major = "";
+		ArrayList<String> jobTypes = null;
+		ArrayList<String> languages = null;
+		ArrayList<String> workExperience = null;
+		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				firstName = (String)mongoDocument.get("firstName");
+				lastName = (String)mongoDocument.get("lastName");
+				email = (String)mongoDocument.get("email");
+				username = (String)mongoDocument.get("username");
+				password = (String)mongoDocument.get("password");
+				degree = (String)mongoDocument.get("degree");
+				major = (String)mongoDocument.get("major");
+				jobTypes = (ArrayList<String>)mongoDocument.get("jobTypes");
+				languages = (ArrayList<String>)mongoDocument.get("languages");
+				workExperience = (ArrayList<String>)mongoDocument.get("workExperience");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setEmail(email);
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setDegree(degree);
+		user.setMajor(major);
+		user.setJobTypes(jobTypes);
+		user.setLanguages(languages);
+		user.setWorkExperience(workExperience);
+		
+		return user;
+	}
+		
+	public static Company companyProfilePage(String receivedCompanyname) {
+		
+		Company company = new Company();
+		
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("companies");	
+		Document findQuery = new Document("companyname", new Document("$eq", receivedCompanyname));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		
+		String companyname = "";
+		String email = "";
+		String password = "";
+		String website = "";
+		String description = "";
+		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				companyname = (String)mongoDocument.get("companyname");
+				email = (String)mongoDocument.get("email");
+				password = (String)mongoDocument.get("password");
+				website = (String)mongoDocument.get("website");
+				description = (String)mongoDocument.get("description");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+
+		company.setCompanyname(companyname);
+		company.setEmail(email);
+		company.setPassword(password);
+		company.setWebsite(website);
+		company.setDescription(description);
+		
+		return company;
+	}
+	
+	public static ArrayList<Job> displaySavedJobs(String receivedUsername) {
+		
+		ArrayList<Job> savedJobs = null;
+		
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
+		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				savedJobs = (ArrayList<Job>)mongoDocument.get("savedJobs");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+
+		return savedJobs;
+		
+	}
 	
 
 }
