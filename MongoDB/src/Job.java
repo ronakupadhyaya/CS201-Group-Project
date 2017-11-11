@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Job {
-	private String company;
+	private String companyname;
 	private String jobTitle;
 	private ArrayList<String> locations;
 	private ArrayList<String> jobTypes;
@@ -9,11 +9,11 @@ public class Job {
 	private String major;
 	private ArrayList<String> languages;
 	
-	public String getCompany() {
-		return company;
+	public String getCompanyName() {
+		return companyname;
 	}
-	public void setCompany(String company) {
-		this.company = company;
+	public void setCompanyName(String companyname) {
+		this.companyname = companyname;
 	}
 	public String getJobTitle() {
 		return jobTitle;

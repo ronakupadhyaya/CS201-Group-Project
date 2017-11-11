@@ -9,6 +9,7 @@ public class User {
 	private String password;
 	private String degree;
 	private String major;
+	private String calendarUrl;
 	private ArrayList<String> jobTypes;
 	private ArrayList<String> languages;
 	private ArrayList<String> workExperience;
@@ -55,6 +56,12 @@ public class User {
 	}
 	public void setMajor(String major) {
 		this.major = major;
+	}
+	public String getCalendarUrl() {
+		return calendarUrl;
+	}
+	public void setCalendarUrl(String calenderUrl) {
+		this.calendarUrl = calendarUrl;
 	}
 	public ArrayList<String> getJobTypes() {
 		return jobTypes;

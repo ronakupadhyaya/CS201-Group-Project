@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.bson.Document;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -26,6 +28,8 @@ public class MongoDB {
 	
 	public static void signUpUser(User user) {
 		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
 		String firstName = user.getFirstName();
 		String lastName = user.getLastName();
 		String email = user.getEmail();
@@ -33,6 +37,7 @@ public class MongoDB {
 		String password = user.getPassword();
 		String degree = user.getDegree();
 		String major = user.getMajor();
+		String calendarUrl = user.getCalendarUrl();
 		ArrayList<String> jobTypes = user.getJobTypes();
 		ArrayList<String> languages = user.getLanguages();
 		ArrayList<String> workExperience = user.getWorkExperience();
@@ -45,6 +50,7 @@ public class MongoDB {
 									  .append("password", password)
 									  .append("degree", degree)
 									  .append("major", major)
+									  .append("calenderUrl", calendarUrl)
 									  .append("jobTypes", jobTypes)
 									  .append("languages", languages)
 									  .append("workExperience", workExperience);
@@ -55,6 +61,8 @@ public class MongoDB {
 	}
 	
 	public static void signUpCompany(Company company) {
+		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		String companyname = company.getCompanyname();
 		String email = company.getEmail();
@@ -76,6 +84,8 @@ public class MongoDB {
 
 	public static boolean userLogin(String receivedUsername, String receviedPassword) {
 
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
 		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
@@ -91,7 +101,7 @@ public class MongoDB {
 			mongoCursor.close();
 		}
 		
-		if(password == receviedPassword) {
+		if(password.equals(receviedPassword)) {
 			return true;
 		}
 
@@ -101,6 +111,8 @@ public class MongoDB {
 	
 	public static boolean companyLogin(String receivedCompanyname, String receviedPassword) {
 
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
 		Document findQuery = new Document("companyname", new Document("$eq", receivedCompanyname));
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
@@ -116,7 +128,7 @@ public class MongoDB {
 			mongoCursor.close();
 		}
 		
-		if(password == receviedPassword) {
+		if(password.equals(receviedPassword)) {
 			return true;
 		}
 
@@ -126,7 +138,9 @@ public class MongoDB {
 	
 	public static void addJobCompany(Job job) {
 		
-		String company = job.getCompany();
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
+		String companyname = job.getCompanyName();
 		String jobTitle = job.getJobTitle();
 		ArrayList<String> locations = job.getLocations();
 		ArrayList<String> jobTypes = job.getJobTypes();
@@ -135,7 +149,7 @@ public class MongoDB {
 		ArrayList<String> languages = job.getLanguages();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("jobs");
-		Document mongoDocument = new Document("company", company)
+		Document mongoDocument = new Document("companyname", companyname)
 									  .append("jobTitle", jobTitle)
 									  .append("locations", locations)
 									  .append("jobTypes", jobTypes)
@@ -148,10 +162,9 @@ public class MongoDB {
 		
 	}
 	
-//	Document updateQuery = new Document("song", "One Sweet Day");
-//    songs.updateOne(updateQuery, new Document("$set", new Document("artist", "Mariah Carey ft. Boyz II Men")));
-	
 	public static void addJobUser(String receivedUsername, Job job) {
+		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");
 		String username = receivedUsername;
@@ -178,7 +191,9 @@ public class MongoDB {
 	
 	public static ArrayList<Job> searchJob(Job jobFilter) {
 		
-		String company = jobFilter.getCompany();
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
+		String companyname = jobFilter.getCompanyName();
 		String jobTitle = jobFilter.getJobTitle();
 		ArrayList<String> locations = jobFilter.getLocations();
 		ArrayList<String> jobTypes = jobFilter.getJobTypes();
@@ -187,28 +202,41 @@ public class MongoDB {
 		ArrayList<String> languages = jobFilter.getLanguages();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("jobs");
-		Document findQuery = new Document("company", new Document("$eq", company))
-								  .append("jobTitle", new Document("$eq", jobTitle))
-								  .append("locations", new Document("$eq", locations))
-								  .append("jobTypes", new Document("$eq", jobTypes))
-								  .append("degree", new Document("$eq", degree))
-								  .append("major", new Document("$eq", major))
-								  .append("languages", new Document("$eq", languages));					  			
+		Document companyNameDocument = new Document("companyname", new Document("$eq", companyname));
+		Document jobTitleDocument = new Document("jobTitle", new Document("$eq", jobTitle));
+		Document locationDocument = new Document("locations", new Document("$eq", locations));
+		Document jobTypesDocument = new Document("jobTypes", new Document("$eq", jobTypes));
+		Document degreeDocument = new Document("degree", new Document("$eq", degree));
+		Document majorDocument = new Document("major", new Document("$eq", major));
+		Document languagesDocument = new Document("languages", new Document("$eq", languages));
+		
+		ArrayList<Document> findQueryDocuments = new ArrayList<Document>(); 
+		findQueryDocuments.add(companyNameDocument); 
+		findQueryDocuments.add(jobTitleDocument);
+		findQueryDocuments.add(locationDocument);
+		findQueryDocuments.add(jobTypesDocument);
+		findQueryDocuments.add(degreeDocument);
+		findQueryDocuments.add(majorDocument);
+		findQueryDocuments.add(languagesDocument);
+		
+		Document findQuery = new Document("$or", findQueryDocuments); 
+		
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
 		
-		ArrayList<Job> returnJobs = null;
-		
+		ArrayList<Job> returnJobs = new ArrayList<Job>();
+		System.out.println("Here1");
 		try {
 			while (mongoCursor.hasNext()) {
+				System.out.println("Here2");
 				Document mongoDocument = mongoCursor.next();
-				Job tempJob = null;
-				tempJob.setCompany((String)mongoDocument.get("Company"));
-				tempJob.setJobTitle((String)mongoDocument.get("Job Title"));
-				tempJob.setLocations((ArrayList<String>) mongoDocument.get("Locations"));
-				tempJob.setJobTypes((ArrayList<String>) mongoDocument.get("Job Types"));
-				tempJob.setDegree((String)mongoDocument.get("Degree"));
-				tempJob.setMajor((String)mongoDocument.get("Major"));
-				tempJob.setLanguages((ArrayList<String>)mongoDocument.get("Languages"));
+				Job tempJob = new Job();
+				tempJob.setCompanyName((String)mongoDocument.get("companyname"));
+				tempJob.setJobTitle((String)mongoDocument.get("jobTitle"));
+				tempJob.setLocations((ArrayList<String>) mongoDocument.get("locations"));
+				tempJob.setJobTypes((ArrayList<String>) mongoDocument.get("jobTypes"));
+				tempJob.setDegree((String)mongoDocument.get("degree"));
+				tempJob.setMajor((String)mongoDocument.get("major"));
+				tempJob.setLanguages((ArrayList<String>)mongoDocument.get("languages"));
 				returnJobs.add(tempJob);
 			}
 		} finally {
@@ -220,6 +248,8 @@ public class MongoDB {
 	}
 	
 	public static User userProfilePage(String receivedUsername) {
+		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		User user = new User();
 		
@@ -234,6 +264,7 @@ public class MongoDB {
 		String password = "";
 		String degree = "";
 		String major = "";
+		String calendarUrl = "";
 		ArrayList<String> jobTypes = null;
 		ArrayList<String> languages = null;
 		ArrayList<String> workExperience = null;
@@ -248,6 +279,7 @@ public class MongoDB {
 				password = (String)mongoDocument.get("password");
 				degree = (String)mongoDocument.get("degree");
 				major = (String)mongoDocument.get("major");
+				calendarUrl = (String)mongoDocument.get("calendarUrl");
 				jobTypes = (ArrayList<String>)mongoDocument.get("jobTypes");
 				languages = (ArrayList<String>)mongoDocument.get("languages");
 				workExperience = (ArrayList<String>)mongoDocument.get("workExperience");
@@ -263,6 +295,7 @@ public class MongoDB {
 		user.setPassword(password);
 		user.setDegree(degree);
 		user.setMajor(major);
+		user.setCalendarUrl(calendarUrl);
 		user.setJobTypes(jobTypes);
 		user.setLanguages(languages);
 		user.setWorkExperience(workExperience);
@@ -271,6 +304,8 @@ public class MongoDB {
 	}
 		
 	public static Company companyProfilePage(String receivedCompanyname) {
+		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		Company company = new Company();
 		
@@ -308,6 +343,8 @@ public class MongoDB {
 	
 	public static ArrayList<Job> displaySavedJobs(String receivedUsername) {
 		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
 		ArrayList<Job> savedJobs = null;
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
@@ -326,6 +363,30 @@ public class MongoDB {
 		return savedJobs;
 		
 	}
+	
+	public static String getCalendarUrl(String receivedUsername) {
+		
+		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
+		
+		String calendarUrl = "";
+		
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
+		Document findQuery = new Document("username", new Document("$eq", receivedUsername));
+		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
+		
+		try {
+			if(mongoCursor.hasNext()) {
+				Document mongoDocument = mongoCursor.next();
+				calendarUrl = (String)mongoDocument.get("calendarUrl");
+			}
+		} finally {
+			mongoCursor.close();
+		}
+
+		return calendarUrl;
+		
+	}
+	
 	
 
 }
