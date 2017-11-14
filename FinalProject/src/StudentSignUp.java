@@ -22,6 +22,7 @@ public class StudentSignUp extends HttpServlet {
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String degree = request.getParameter("degree");
 		String major = request.getParameter("major");
@@ -33,7 +34,7 @@ public class StudentSignUp extends HttpServlet {
 			System.out.println(typeList.get(i));
 		}
 		String languages = request.getParameter("languages");
-		String[] languageArray = type.split(",");
+		String[] languageArray = languages.split(",");
 		ArrayList<String> languageList = new ArrayList<String>();
 		for(int i = 0; i < languageArray.length; i++) {
 			languageList.add(languageArray[i]);
@@ -45,6 +46,7 @@ public class StudentSignUp extends HttpServlet {
 		user.setFirstName(fname);
 		user.setLastName(lname);
 		user.setEmail(email);
+		user.setUsername(username);
 		user.setPassword(password);
 		user.setDegree(degree);
 		user.setMajor(major);

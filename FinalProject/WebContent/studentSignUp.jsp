@@ -42,6 +42,7 @@ button{
 		var fname = document.getElementById("fname").value;
 		var lname = document.getElementById("lname").value;
 		var email = document.getElementById("email").value;
+		var username = document.getElementById("username").value;
 		var password = document.getElementById("password").value;
 		//alert(password);
 		var degree = document.getElementById("Degree").value;
@@ -58,7 +59,7 @@ button{
 		//alert(experience);
 		//console.log(fname + lname + email + password + degree + major + type + languages + experience);
 		var xhttp = new XMLHttpRequest();
-		var request = "StudentSignUp?fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password + "&degree=" + degree + "&major=" + major + "&type=" + type + "&languages=" + languages + "&experience=" + experience;
+		var request = "StudentSignUp?fname=" + fname + "&lname=" + lname + "&email=" + email + "&username=" + username + "&password=" + password + "&degree=" + degree + "&major=" + major + "&type=" + type + "&languages=" + languages + "&experience=" + experience;
 		xhttp.open("GET", request, false);
 		xhttp.send();
 		
@@ -104,6 +105,7 @@ button{
           <font size="5"  color="Green">Last Name</font>  <input  type="text" placeholder="last name" id = "lname"> </br> </br>
            
            <font size="5"  color="Green">Email</font>    <input  type="email" placeholder="email" id = "email" >
+           <font size="5"  color="Green">Username</font>    <input  type="text" placeholder="username" id = "username" >
            <font size="5"  color="Green"> Password</font> <input type="password" placeholder="password" id = "password"> </br> </br>
           
            <font size="5"  color="Green">Degree</font>  

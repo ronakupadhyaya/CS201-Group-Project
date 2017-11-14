@@ -28,18 +28,20 @@
 		var type = $('input[name="type"]:checked').map(function() {
   			 return this.value;
 		}).get();
-		alert(name + " " + password + " " + type);
 		var xhttp = new XMLHttpRequest();
 		var request = "LoginValidate?username=" + name + "&password=" + password + "&type=" + type;
 		xhttp.open("GET", request, false);
 		xhttp.send();
 		var response = xhttp.responseText.trim();
-		alert(response);
 		if(response == "valid"){
-			alert("hi");
 			window.location.href="homeStudent.jsp";
 		}
-		
+		else if(response == "validCompany"){
+			window.location.href="HomeCompany.jsp";
+		}
+		else {
+			document.getElementById("error").innerHTML = xhttp.responseText.trim();
+		}
 		return false;
 	}
 </script>
@@ -48,6 +50,7 @@
     <aside class="callout">
       <div class="text-vertical-center">
         <h1>Please Log In </h1><br/>
+        <div id = "error"></div>
         <form name = "jobForm" method ="GET" onsubmit="return validate();">
         		<strong>User Name<font color ="red">*</font> </strong>
         		<input type ="text" id ="username" /> <br /><br />
