@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 import org.bson.Document;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -39,7 +40,7 @@ public class MongoDB {
 		String calendarUrl = user.getCalendarUrl();
 		ArrayList<String> jobTypes = user.getJobTypes();
 		ArrayList<String> languages = user.getLanguages();
-		ArrayList<String> workExperience = user.getWorkExperience();
+		String workExperience = user.getWorkExperience();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");
 		Document mongoDocument = new Document("firstName", firstName)
@@ -58,26 +59,6 @@ public class MongoDB {
 		return;
 		
 	}
-	
-	public static boolean userExists(String receivedUsername) {
-		
-		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
-		
-		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
-		Document findQuery = new Document("Username", new Document("$eq", receivedUsername));
-		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
-
-		try {
-			if(mongoCursor.hasNext()) {
-				return true;
-			}
-		} finally {
-			mongoCursor.close();
-		}
-		
-		return false;
-	}
-
 	
 	public static void signUpCompany(Company company) {
 		
@@ -132,7 +113,7 @@ public class MongoDB {
 
 		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
-		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");	
+		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("companies");	
 		Document findQuery = new Document("companyname", new Document("$eq", receivedCompanyname));
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
 		
@@ -160,9 +141,6 @@ public class MongoDB {
 		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		String companyname = job.getCompanyName();
-		String description = job.getDescription();
-		String website = job.getWebsite();
-		String imageUrl = job.getImageUrl();
 		String jobTitle = job.getJobTitle();
 		ArrayList<String> locations = job.getLocations();
 		ArrayList<String> jobTypes = job.getJobTypes();
@@ -172,9 +150,6 @@ public class MongoDB {
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("jobs");
 		Document mongoDocument = new Document("companyname", companyname)
-								      .append("description", description)
-								      .append("website", website)
-								      .append("imageUrl", imageUrl)
 									  .append("jobTitle", jobTitle)
 									  .append("locations", locations)
 									  .append("jobTypes", jobTypes)
@@ -292,7 +267,7 @@ public class MongoDB {
 		String calendarUrl = "";
 		ArrayList<String> jobTypes = null;
 		ArrayList<String> languages = null;
-		ArrayList<String> workExperience = null;
+		String workExperience = null;
 		
 		try {
 			if(mongoCursor.hasNext()) {
@@ -307,7 +282,7 @@ public class MongoDB {
 				calendarUrl = (String)mongoDocument.get("calendarUrl");
 				jobTypes = (ArrayList<String>)mongoDocument.get("jobTypes");
 				languages = (ArrayList<String>)mongoDocument.get("languages");
-				workExperience = (ArrayList<String>)mongoDocument.get("workExperience");
+				workExperience = (String)mongoDocument.get("workExperience");
 			}
 		} finally {
 			mongoCursor.close();
