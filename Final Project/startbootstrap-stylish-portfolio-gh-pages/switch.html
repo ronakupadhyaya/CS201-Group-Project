@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>Job Search &amp; Job Posting App | InternSConnect</title>
+      <meta name="description" content="Hire top talent smarter, faster, and easier. Create a profile to post jobs for free. Switch matches candidates including software developers, marketers, sales people, product managers, designers, and more."/>
+      <meta name="keywords" content="Candidates, talent, team, hiring, business development, data science, design, finance, marketing, operations, product management, recruitng, sales, software development"/>
+      <link rel="apple-touch-icon" sizes="76x76" href="https://www.switchapp.com/favicons/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" href="https://www.switchapp.com/favicons/favicon-32x32.png" sizes="32x32"/>
+      <link rel="icon" type="image/png" href="https://www.switchapp.com/favicons/favicon-16x16.png" sizes="16x16"/>
+      <link rel="icon" type="image/ico" href="https://www.switchapp.com/favicons/favicon.ico" sizes="16x16"/>
+      <link rel="manifest" href="https://www.switchapp.com/favicons/manifest.json"/>
+      <link rel="mask-icon" href="https://www.switchapp.com/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
+      <meta name="apple-mobile-web-app-title" content="Switchapp"/>
+      <meta name="application-name" content="Switchapp"/>
+      <meta name="theme-color" content="#ffffff"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+      <meta name="apple-itunes-app" content="app-id=879185767"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css"/>
+      <link rel="stylesheet" href="https://www.switchapp.com/libs/swiper/dist/css/swiper.min.css"/>
+      <link rel="stylesheet" href="https://www.switchapp.com/css/style.min.css"/>
+   </head>
+   <body class="homepage">
+      <header class="header has-dropdowns" data-type="header" style="display: none;">
+         <nav class="section is-small">
+            <div class="container nav">
+               <a class="nav-item is-brand" href="https://www.switchapp.com">
+                  <!-- <span class="brand-item">
+                     <svg width="29" height="20" viewBox="6 10 29 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.294 26.34a9.87 9.87 0 0 0 6.985 2.857 9.866 9.866 0 0 0 6.985-2.857l3.376-3.338a4.014 4.014 0 0 0 0-5.717 4.127 4.127 0 0 0-5.782 0l-3.376 3.338a1.716 1.716 0 0 1-2.406 0 1.67 1.67 0 0 1 0-2.378l3.376-3.34a7.483 7.483 0 0 1 5.297-2.165c2.004 0 3.885.77 5.297 2.166a7.318 7.318 0 0 1 2.19 5.237 7.315 7.315 0 0 1-2.19 5.237l-2.969 2.935c-.15.149-.093.424.265.424h2.189a1.2 1.2 0 0 0 .845-.346v-.001l1.358-1.342a9.647 9.647 0 0 0 2.89-6.907 9.647 9.647 0 0 0-2.89-6.906 9.867 9.867 0 0 0-6.985-2.857 9.867 9.867 0 0 0-6.985 2.857l-3.376 3.338a4.015 4.015 0 0 0 0 5.718 4.128 4.128 0 0 0 5.782 0l3.376-3.338a1.717 1.717 0 0 1 2.406-.001 1.67 1.67 0 0 1 0 2.378l-3.376 3.339a7.484 7.484 0 0 1-5.297 2.165 7.484 7.484 0 0 1-5.297-2.165 7.314 7.314 0 0 1-2.19-5.236c0-1.982.778-3.842 2.19-5.238l2.866-2.834c.15-.15.093-.424-.265-.424h-2.188c-.306 0-.613.116-.845.346l-1.257 1.242a9.65 9.65 0 0 0-2.889 6.907 9.645 9.645 0 0 0 2.89 6.906" fill="#FFF" fill-rule="evenodd"/>
+                     </svg>
+                  </span> -->
+               </a>
+               <div class="nav-dropdowns">
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        Employers
+                        <svg width="19" height="11" viewBox="0 0 19 11" xmlns="http://www.w3.org/2000/svg">
+                           <g stroke="#00A7FF" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                              <path d="M2.193 2.18l7.16 6.608M16.807 2.18l-7.16 6.608"/>
+                           </g>
+                        </svg>
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="employerSignUp.jsp">Create Free Account</a></li>
+                        <li><a href="loginPage.jsp">Log In</a></li>
+                     </ul>
+                  </div>
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        Jobseekers
+                        <svg width="19" height="11" viewBox="0 0 19 11" xmlns="http://www.w3.org/2000/svg">
+                           <g stroke="#00A7FF" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                              <path d="M2.193 2.18l7.16 6.608M16.807 2.18l-7.16 6.608"/>
+                           </g>
+                        </svg>
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="studentSignUp.jsp">Create Free Account</a></li>
+                        <li><a href="loginPage.jsp">Log In</a></li>
+                     </ul>
+                  </div>
+                  <div class="dropdown">
+                     <button class="dropdown-button">
+                        About InternSConnect
+                        <svg width="19" height="11" viewBox="0 0 19 11" xmlns="http://www.w3.org/2000/svg">
+                           <g stroke="#00A7FF" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                              <path d="M2.193 2.18l7.16 6.608M16.807 2.18l-7.16 6.608"/>
+                           </g>
+                        </svg>
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="about.jsp">About InternSConnect</a></li>
+                        <li><a href="case.jsp">Case Studies</a></li>
+                        <li><a href="faq.jsp">FAQ</a></li>
+                        <li><a href="blog.jsp">Blog</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <header class="header has-dropdowns" data-type="header-loggedin" style="display: none;">
+         <nav class="section is-small">
+            <div class="container nav">
+               </a> -->
+               <div class="nav-toggle"><span></span><span></span><span></span></div>
+            </div>
+         </nav>
+      </header>
+      <div class="banner hero is-large homepage">
+         <div class="hero-body">
+            <div class="container hero is-transparent">
+               <div class="hero is-transparent">
+                  <div class="has-text-centered">
+                     <h1 class="title is-medium has-text-light">Build a great team with InternSConnect</h1>
+                     <div class="level is-container">
+                        <div class="level-item"><a class="button is-large is-primary has-text-medium has-text-uppercase" href="employerSignUp.jsp" data-header-logout="data-header-logout">HIRING? CREATE FREE ACCOUNT</a></div>
+                        <div class="level-item"><a class="button is-large is-primary has-text-medium has-text-uppercase" href="studentSignUp.jsp" data-header-logout="data-header-logout">Jobseeker? Sign Up Here</a></div>
+                     </div>
+                  </div>
+               </div>
+               <p class="has-text-centered">
+                  <a class="button-scroll-top" href="#tapInnovationGeneration" data-scroll-top="data-scroll-top">
+                     <svg width="28" height="15" viewBox="586 542 28 15" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M588.316 544.3l11.688 11.104m11.68-11.104l-11.688 11.104" fill="none" fill-rule="evenodd" stroke-linecap="square" stroke="#666" stroke-width="2"/>
+                     </svg>
+                  </a>
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="hero content-article" id="tapInnovationGeneration">
+         <div class="hero-body">
+            <div class="container">
+               <h3 class="title is-medium has-text-light has-text-centered">How can InternSConnect find you find an internship?</h3>
+               <div class="tile is-ancestor is-centered">
+                  <div class="tile is-vertical is-child is-5">
+                     <article class="article" data-scroll-watch="data-scroll-watch">
+                        <h2 class="title is-medium has-text-medium is-mobile-xsmall">Connect with Top Talent</h2>
+                        <p class="has-text-light">InternSConnect automatically matches the right candidates to your job posting, leaving you with a pipeline of only the most qualified candidates and a personalized, seamless hiring experience.
+                        <ul>
+                           <li>Shortlist recommended candidates and applicants quickly and effectively</li>
+                           <li>Reach passive candidates who are actually looking</li>
+                           <li>Integrate with your ATS!</li>
+                        </ul>
+                        </p>
+                     </article>
+                  </div>
+                  <div class="tile is-vertical is-child is-7 has-text-right"><img class="image-product" src="img/image1.png" data-scroll-watch="data-scroll-watch"/></div>
+               </div>
+               <div class="tile is-ancestor is-centered">
+                  <div class="tile is-vertical is-child is-7 has-text-left"><img class="image-product" src="img/image2.png" data-scroll-watch="data-scroll-watch"/></div>
+                  <div class="tile is-vertical is-child is-5">
+                     <article class="article" data-scroll-watch="data-scroll-watch">
+                        <h2 class="title is-medium has-text-medium is-mobile-xsmall">Schedule Interviews</h2>
+                        <p class="has-text-light">Reduce time spent on scheduling. Send, request and schedule interviews directly within the app! Immediately, sync to your calendar.
+                        <ul>
+                           <li>Accept, request or reject interview times within the app</li>
+                           <li>Message with candidates via in-app messaging or email</li>
+                        </ul>
+                        </p>
+                     </article>
+                     <!-- <p class="has-texe-centered-mobile"><a class="button is-primary has-text-medium is-medium" href="https://web.switchapp.com/#/signup-profile/">CREATE FREE ACCOUNT</a></p> -->
+                  </div>
+               </div>
+               <div class="tile is-ancestor is-centered">
+                  <div class="tile is-vertical is-child is-5">
+                     <article class="article" data-scroll-watch="data-scroll-watch">
+                        <h2 class="title is-medium has-text-medium is-mobile-xsmall">Pay as You Go Performance Pricing</h2>
+                        <p class="has-text-light">Choose a payment option that fits your preferred pricing model! Spend less and build the team you want, fast.
+                        <ul>
+                           <li>Applicant funnel management</li>
+                           <li>Seamlessly use our Web or Mobile applications</li>
+                        </ul>
+                        </p>
+                     </article>
+                  </div>
+                  <div class="tile is-vertical is-child is-7 has-text-right"><img class="image-product" src="img/image3.png" data-scroll-watch="data-scroll-watch"/></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="hero is-primary-gradient content-category">
+         <div class="hero-body"><h3 class="title is-medium has-text-light has-text-centered">Get started now!<p class="subtitle is-4 has-text-medium has-text-centered">Pick a category and post a job for free.</p></h3><div id="contentCard"><div class="card-box"><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=6" data-card="data-card"><span class="card-image"><svg width="60px" height="62px" viewBox="98 34 60 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(99.000000, 35.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M38.0122553,47.6532766 L48.9960851,58.6294468 C50.5394894,60.1728511 53.0365106,60.1728511 54.5697021,58.632 C56.108,57.0911489 56.1054468,54.599234 54.5671489,53.058383 L45.0182128,43.518383" id="Stroke-61" stroke="#00A7FF" stroke-width="2"></path> <path d="M8.11068085,17.7773617 L13.3638723,23.0254468" id="Stroke-63" stroke="#00A7FF" stroke-width="2"></path> <path d="M20.7133617,19.2328085 L13.9869787,12.5115319" id="Stroke-65" stroke="#00A7FF" stroke-width="2"></path> <path d="M11.2835319,16.2869362 C14.2911915,13.9609787 15.1962979,10.0686383 13.3120426,7.58055319 C11.630766,5.36821277 9.19246809,4.83459574 6.74906383,4.14140426 C6.038,3.94480851 5.32438298,3.73034043 4.63119149,3.45331915 C3.2192766,2.898 1.89034043,2.08480851 0.792468085,0.638425532 C-2.05817021,10.4694894 3.638,22.1567234 11.2835319,16.2869362 L11.2835319,16.2869362 Z" id="Stroke-67" stroke="#00A7FF" stroke-width="2"></path> <path d="M10.6837872,42.4876596 L1.97357447,50.9144681 C0.426340426,52.4578723 0.426340426,54.953617 1.9646383,56.4868085 C3.50548936,58.0276596 5.99868085,58.0251064 7.53697872,56.4842553 L17.4165532,46.9289362" id="Stroke-69" stroke="#00A7FF" stroke-width="2"></path> <polyline id="Stroke-71" stroke="#00A7FF" stroke-width="2" points="42.7495745 22.4267234 47.2457447 18.0773617 41.6861702 12.4973617 35.1219149 18.8484255"></polyline> <polygon id="Stroke-73" stroke="#00A7FF" stroke-width="2" points="56.7123404 8.12859574 57.4910638 2.0826383 51.5357447 2.94944681 45.4885106 3.92987234 41.6855319 12.4971064 47.246383 18.0771064 56.0382979 14.0775319"></polygon> <path d="M57.4915745,2.08225532 L50.5200851,9.05374468" id="Stroke-75" stroke="#00A7FF" stroke-width="2"></path> <path d="M2.40340426,33.7727234 C18.7948936,54.9731489 38.2004255,54.966766 54.5995745,33.7727234 C38.2106383,12.5748511 18.8,12.5837872 2.40340426,33.7727234 L2.40340426,33.7727234 Z" id="Stroke-77" stroke="#00A7FF" stroke-width="2"></path> <path d="M18.1800851,33.7727234 C18.1800851,28.0778298 22.8102979,23.460383 28.5013617,23.460383 C34.1975319,23.460383 38.804766,28.0778298 38.804766,33.7727234 C38.804766,39.4778298 34.1975319,44.0901702 28.5013617,44.0901702 C22.8039149,44.0901702 18.1800851,39.4778298 18.1800851,33.7727234 L18.1800851,33.7727234 Z" id="Stroke-79" stroke="#00A7FF" stroke-width="2"></path> <path d="M22.8551064,33.7727234 C22.8551064,30.6591064 25.3840426,28.1327234 28.496383,28.1327234" id="Stroke-81" stroke="#00A7FF" stroke-width="2"></path> </g> </svg></span><p class="card-text">Art &amp; Design</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=9" data-card="data-card"><span class="card-image"><svg width="64px" height="61px" viewBox="93 33 64 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(94.000000, 34.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M58.7935455,9.76168182 L2.804,9.76168182 C1.32172727,9.76168182 0.117636364,11.0135 0.117636364,12.5666818 L0.117636364,55.6998636 C0.117636364,57.2462273 1.32172727,58.5035 2.804,58.5035 L58.7935455,58.5035 C60.2799091,58.5035 61.4812727,57.2462273 61.4812727,55.6998636 L61.4812727,12.5666818 C61.4812727,11.0135 60.2799091,9.76168182 58.7935455,9.76168182 L58.7935455,9.76168182 Z" id="Stroke-1" stroke="#00A7FF" stroke-width="2"></path> <path d="M17.9910909,9.76168182 L17.9910909,2.99395455 C17.9910909,1.44895455 19.1951818,0.188954545 20.6760909,0.188954545 L40.9274545,0.188954545 C42.4056364,0.188954545 43.6124545,1.44895455 43.6124545,2.99395455 L43.6124545,9.76168182" id="Stroke-3" stroke="#00A7FF" stroke-width="2"></path> <path d="M42.6363636,20.8181818 L42.8375,41.6445909 C42.8375,45.1464091 40.0011364,47.9800455 36.5020455,47.9800455 C32.9988636,47.9800455 30.1625,45.1464091 30.1625,41.6445909 L30.1625,38.9923182 C30.1625,35.4918636 27.3206818,32.6555 23.8215909,32.6555 C20.3211364,32.6555 17.4820455,35.4918636 17.4820455,38.9923182 L17.4820455,57.6463029" id="Stroke-5" stroke="#00A7FF" stroke-width="2"></path> <polyline id="Stroke-11" stroke="#00A7FF" stroke-width="2" points="49.4545455 26.2727273 42.7331384 19.8317273 35.8181818 26.2727273"></polyline> </g> </svg></span><p class="card-text">Business Development</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=15" data-card="data-card"><span class="card-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">	.st0{fill:none;stroke:#00a7ff;stroke-width:2;stroke-miterlimit:10;}</style><title>3. Communication</title><g id="Woman" fill="#00a7ff">	<path class="st0" d="M32.4,42.9L45.5,39C48,15,41.2,3,29,3l0,0l-2-2C7,1,0,15,2.5,39l12.8,3.8"></path>	<circle cx="17.5" cy="25.5" r="2.5"></circle>	<circle cx="30.5" cy="25.5" r="2.5"></circle>	<path class="st0" d="M29,36l-0.3,0.5c-1,1.6-2.8,2.5-4.7,2.5l0,0c-1.9,0-3.6-0.9-4.7-2.5L19,36"></path>	<path class="st0" d="M39,21.5v5c0,7-3.1,13.6-8.5,18.1h-0.1c-3.7,3.1-9.2,3.1-12.9,0l-3.7-3.1C10.8,39,9,35.2,9,31.2v-9.7		c0,0,19-4.5,19-11.5C28,16,39,21.5,39,21.5z"></path></g></svg></span><p class="card-text">Customer Service</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=5" data-card="data-card"><span class="card-image"><svg width="78px" height="62px" viewBox="-8 -1 78 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <path d="M16.7241379,47.2529765 L16.3991133,15.3840453 L26.0344828,15.3840453 L26.0344828,52.6281791 L26.0344828,0.109768552 L35.8626122,0.109768552 L35.8626122,9.11341463 L35.8626122,52.1978022 M35.862069,8.9010989 L45.4827586,8.9010989 L45.4827586,46.7869346 M37.0429306,51.7046954 C53.2414543,43.4511353 63.9249103,31.676778 60.7402971,25.4266228 C58.9542353,21.9212791 53.0729022,20.9227927 45.5298403,22.1514302 L45.4118524,9.02675475 L35.8898344,9.02675475 L35.8898344,25.2003182 L35.6166868,0.236670596 L26.0388403,0.236670596 L26.0388403,28.8038997 L26.0388403,15.364589 C26.0388403,15.364589 16.5806991,15.3185532 16.4903487,15.364589 L16.4903487,34.3569643 C4.75791098,40.3265555 -0.475048273,50.3003453 2.08025371,55.3154078 C5.26486687,61.565563 20.8444069,59.9582554 37.0429306,51.7046954 Z M24.8086488,52.2339046 C41.0071725,60.4874646 56.8762889,61.565563 60.060902,55.3154078 C62.597029,50.3379784 56.4227062,41.8677184 45.621751,34.4559518 C45.3605187,34.2766906 45.621751,8.96091952 45.621751,8.96091952 L35.8603554,8.96091952 L35.8603554,28.861293 L35.8603554,0.258461128 L26.0417431,0.258461128 L26.0417431,24.6837838 L26.0417431,15.2846569 L16.4197051,15.2846569 L16.4197051,22.2168034 C8.93438382,21.0177444 3.17768592,21.9394028 1.4008586,25.4266228 C-1.78375456,31.676778 8.61012509,43.9803445 24.8086488,52.2339046 Z" id="Combined-Shape" stroke="#00A7FF" stroke-width="2" fill="none"></path> </svg></span><p class="card-text">Data Science</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=18" data-card="data-card"><span class="card-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#00a7ff;stroke-width:2;stroke-miterlimit:10;}</style><title>Untitled-13</title><g id="Book_-_Open"><path class="st0" d="M24,12c0-4.4-3.6-8-8-8H1v32h15.1c7.9,0,7.9,8,7.9,8s0-8,8-8h15V4H32C27.6,4,24,7.6,24,12"></path><path class="st0" d="M28.5,43.5c1-2.1,3.2-3.5,5.5-3.5H48"></path><path class="st0" d="M19.5,43.5c-1-2.1-3.1-3.5-5.5-3.5H0"></path><line class="st0" x1="24" y1="12" x2="24" y2="44"></line></g></svg></span><p class="card-text">Education</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=23" data-card="data-card"><span class="card-image"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><style>.cls-1{fill:none;stroke:#00a7ff;stroke-miterlimit:10;stroke-width:2px;}</style></defs><title>1. General</title><g id="Wranch"><path class="cls-1" d="M42.6,17.14L47,9.53l-2-2L39.7,12.87,35.44,8.62,40.76,3.3,38.46,1,31,5.62a6,6,0,0,0-2.83,5.29l0.11,3.42L2.42,40.16a4,4,0,0,0,0,5.67h0a4,4,0,0,0,5.68,0L34,20l3.12,0.14A6,6,0,0,0,42.6,17.14Z"></path><path class="cls-1" d="M39.29,45.68L29.4,35.9l6.39-6.38,9.88,9.78a4.5,4.5,0,0,1,0,6.38h0A4.52,4.52,0,0,1,39.29,45.68Z"></path><polygon class="cls-1" points="23.01 19.6 19.46 23.15 9.17 12.87 3.48 11.45 1 3.3 3.13 1.18 11.65 3.3 12.72 9.33 23.01 19.6"></polygon><polygon class="cls-1" points="30.82 34.49 25.14 28.82 29.05 24.92 34.73 30.59 30.82 34.49"></polygon></g></svg></span><p class="card-text">Engineering &amp; Manufacturing</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=12" data-card="data-card"><span class="card-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">	.st0{fill:none;stroke:#00a7ff;stroke-width:2;stroke-miterlimit:10;}</style><title>Financial</title><g id="Calculator" fill="#00a7ff">	<path class="st0" d="M6,1h35l0,0v38c0,4.4-3.6,8-8,8H14c-4.4,0-8-3.6-8-8V1L6,1z"></path>	<line class="st0" x1="6" y1="11" x2="41" y2="11"></line>	<circle cx="14.5" cy="19.5" r="2.5"></circle>	<circle cx="23.5" cy="19.5" r="2.5"></circle>	<circle cx="32.5" cy="19.5" r="2.5"></circle>	<circle cx="14.5" cy="28.5" r="2.5"></circle>	<circle cx="23.5" cy="28.5" r="2.5"></circle>	<circle cx="32.5" cy="28.5" r="2.5"></circle>	<circle cx="14.5" cy="37.5" r="2.5"></circle>	<circle cx="23.5" cy="37.5" r="2.5"></circle>	<circle cx="32.5" cy="37.5" r="2.5"></circle></g></svg></span><p class="card-text">Finance</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=24" data-card="data-card"><span class="card-image"><svg width="27px" height="32px" viewBox="0 0 27 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>police</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="police" transform="translate(1.000000, 1.000000)" stroke="#00A7FF"><path d="M12.5,30.2631579 C12.5,30.2631579 0,25.7894737 0,12.8947368 L0,2.63157895 L12.5,0 L25,2.63157895 L25,12.8947368 C25,25.9210526 12.5,30.2631579 12.5,30.2631579 Z" id="Shape"></path><polygon id="Star" points="12.5 6 14.3035714 11.625 20 11.6179687 15.4178571 14.7082031 17.1357143 20.0625 12.5 16.7964844 7.86428571 20.0625 9.58214286 14.7082031 5 11.6179687 10.6964286 11.625"></polygon></g></g> </svg></span><p class="card-text">Government &amp; Law Enforcement</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=16" data-card="data-card"><span class="card-image"><svg id="category-icon-healthcare" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><title>18. Health</title><path fill="#00a7ff" d="M33.78,11L32.73,6.79A5,5,0,0,0,27.88,3H20.12a5,5,0,0,0-4.85,3.79L14.22,11H0V36a9,9,0,0,0,9,9H39a9,9,0,0,0,9-9V11H33.78ZM17.21,7.27A3,3,0,0,1,20.12,5h7.75a3,3,0,0,1,2.91,2.27L31.72,11H16.28ZM46,36a7,7,0,0,1-7,7H9a7,7,0,0,1-7-7V13H46V36Z"></path><path fill="#00a7ff" d="M20,37h8V32h5V24H28V19H20v5H15v8h5v5Zm-3-7V26h5V21h4v5h5v4H26v5H22V30H17Z"></path></svg></span><p class="card-text">Healthcare</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=17" data-card="data-card"><span class="card-image"><svg width="28px" height="31px" viewBox="0 0 28 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>umbrella</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="umbrella" transform="translate(1.000000, 1.000000)" stroke="#00A7FF"><path d="M12.7659574,0 L12.7659574,0 C19.787234,0 25.5319149,5.74468085 25.5319149,12.7659574 L0,12.7659574 C0,5.74468085 5.74468085,0 12.7659574,0 Z" id="Shape"></path><path d="M20.4255319,25.5319149 C20.4893617,27.5744681 18.8297872,29.2978723 16.7234043,29.3617021 C16.6595745,29.3617021 16.5957447,29.3617021 16.5957447,29.3617021 L16.5957447,29.3617021 C14.5531915,29.4255319 12.8297872,27.7659574 12.7659574,25.6595745 C12.7659574,25.5957447 12.7659574,25.5319149 12.7659574,25.5319149 L12.7659574,12.7659574" id="Shape"></path></g></g></svg></span><p class="card-text">Insurance</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=14" data-card="data-card"><span class="card-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 52 48" style="enable-background:new 0 0 52 48;" xml:space="preserve"><style type="text/css">	.st0{fill:none;stroke:#00a7ff;stroke-width:2;stroke-miterlimit:10;}</style><title>Untitled-13</title><g id="Mortar_Board">	<polygon class="st0" points="26,24 2,16 26,8 50,16 	"></polygon>	<path class="st0" d="M39.1,19.6L37,30c0,0-3,4-11,4s-11-4-11-4l-2-10.3"></path>	<polyline class="st0" points="26,16 46,22 46,30 	"></polyline>	<path class="st0" d="M48,40h-4l-0.7-7c-0.2-1.5,0.9-2.8,2.4-3c0.1,0,0.2,0,0.3,0l0,0c1.5,0,2.7,1.2,2.7,2.7c0,0.1,0,0.2,0,0.3		L48,40z"></path></g></svg></span><p class="card-text">Legal</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=21" data-card="data-card"><span class="card-image"><!--?xml version="1.0" encoding="UTF-8"?--><svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>compass</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="compass" transform="translate(1.000000, 1.000000)"><circle id="Oval" stroke="#00A7FF" cx="15" cy="15" r="15"></circle><polygon id="Shape" stroke="#00A7FF" points="6.52173913 23.4782609 11.6086957 11.6086957 23.4782609 6.52173913 18.3913043 18.3913043"></polygon><circle id="Oval" fill="#00A7FF" fill-rule="nonzero" cx="15" cy="15" r="1.30434783"></circle></g></g></svg></span><p class="card-text">Logistics &amp; Transportation</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=4" data-card="data-card"><span class="card-image"><svg width="65px" height="61px" viewBox="93 29 65 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(94.000000, 30.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M9.69978261,41.280913 L11.505,54.9987391 C11.8180435,57.4013478 14.0184783,59.0943913 16.4119565,58.7787391 C18.8106522,58.463087 20.4971739,56.2678696 20.1815217,53.8652609 L18.701087,42.6217826" id="Stroke-15" stroke="#00A7FF" stroke-width="2"></path> <path d="M35.3141739,1.92117391 C20.9872174,21.3976957 8.97156522,17.6724783 8.97156522,17.6724783 C-1.79191304,17.6724783 -1.79191304,41.4533478 8.98591304,41.4533478 C8.98591304,41.4533478 20.7315652,37.3603043 35.3298261,57.2098696" id="Stroke-17" stroke="#00A7FF" stroke-width="2"></path> <path d="M53.4897391,29.5545652 C53.4897391,52.3923913 43.5949565,63.3984783 35.4623478,57.2093478 C29.8314783,52.9245652 26.4127826,41.0315217 26.3958261,29.561087 C26.3958261,18.0997826 29.8314783,6.1976087 35.4623478,1.92065217 C43.6027826,-4.26586957 53.4975652,6.72456522 53.4897391,29.5545652 L53.4897391,29.5545652 Z" id="Stroke-19" stroke="#00A7FF" stroke-width="2"></path> <path d="M44.3656957,29 L62.5313478,29" id="Stroke-21" stroke="#00A7FF" stroke-width="2"></path> <path d="M41.3633478,41.0337391 L57.2920435,51.3341739" id="Stroke-23" stroke="#00A7FF" stroke-width="2"></path> <path d="M42.9504783,18.0752609 L58.8791739,7.78004348" id="Stroke-25" stroke="#00A7FF" stroke-width="2"></path> <path d="M33.1844348,37.541087 C35.7657391,36.1467391 37.5592174,33.1036957 37.5592174,29.565 C37.5592174,26.0236957 35.7657391,22.9819565 33.1844348,21.5902174" id="Stroke-27" stroke="#00A7FF" stroke-width="2"></path> </g> </svg></span><p class="card-text">Marketing</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=8" data-card="data-card"><span class="card-image"><svg width="50px" height="62px" viewBox="98 32 50 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(99.000000, 33.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.2091739,10.5496957 L3.26047826,10.5496957 C1.77613043,10.5496957 0.57873913,11.6988261 0.57873913,13.1205652 L0.57873913,56.9544783 C0.57873913,58.3736087 1.77613043,59.5253478 3.26047826,59.5253478 L44.5183043,59.5253478 C45.9987391,59.5253478 47.2013478,58.3736087 47.2013478,56.9544783 L47.2013478,13.1205652 C47.2013478,11.6988261 45.9987391,10.5496957 44.5183043,10.5496957 L36.5696087,10.5496957" id="Stroke-29" stroke="#00A7FF" stroke-width="2"></path> <path d="M33.8876087,8.33465217 L31.4145652,8.33465217 C31.4080435,4.19073913 27.9971739,0.808565217 23.8545652,0.829434783 C19.7380435,0.798130435 16.4002174,4.15943478 16.3663043,8.33465217 L13.8919565,8.33465217 C12.4063043,8.33465217 11.208913,9.48378261 11.208913,10.9055217 L11.208913,16.869 C11.208913,18.2881304 12.4063043,19.4398696 13.8919565,19.4398696 L33.8876087,19.4398696 C35.3667391,19.4398696 36.5706522,18.2881304 36.5706522,16.869 L36.5706522,10.9055217 C36.5706522,9.48378261 35.3667391,8.33465217 33.8876087,8.33465217 L33.8876087,8.33465217 Z" id="Stroke-31" stroke="#00A7FF" stroke-width="2"></path> <path d="M23.8756957,5.00504348 C25.7148261,4.99591304 27.2291739,6.49982609 27.2291739,8.34156522 C27.2187391,10.1715652 25.7291739,11.6572174 23.8835217,11.6624348 C22.0522174,11.6637391 20.5652609,10.1663478 20.5535217,8.34156522 C20.5652609,6.48678261 22.0496087,4.99069565 23.8756957,5.00504348 L23.8756957,5.00504348 Z" id="Stroke-33" stroke="#00A7FF" stroke-width="2"></path> <polyline id="Stroke-35" stroke="#00A7FF" stroke-width="2" points="18.7486957 35.157913 23.4378261 41.8518261 34.9317391 27.5013913"></polyline> <polyline id="Stroke-37" stroke="#00A7FF" stroke-width="2" points="33.3194348 37.7882609 33.3194348 47.6008696 14.4611739 47.6008696 14.4611739 28.743913 28.9368261 28.743913"></polyline> </g> </svg></span><p class="card-text">Operations</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=3" data-card="data-card"><span class="card-image"><svg width="63px" height="62px" viewBox="899 802 63 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(900.000000, 803.000000)"> <g id="Group-2" transform="translate(4.439746, 5.339578)" stroke="#00A7FF" stroke-width="2"> <path d="M7.10359408,0.9375 L12.0511465,0.9375" id="Path-4"></path> <path d="M34.5031712,49.6875 L41.987315,49.6875" id="Path-4"></path> <path d="M-6.19504448e-13,0.9375 L4.94755243,0.9375" id="Path-4"></path> </g> <path d="M54.1649049,6.04215457 C54.1649049,6.04215457 53.7843552,6.04215457 55.0528541,6.04215457 C56.3213531,6.04215457 60,6.04215457 60,10.9601874 C60,16.0849561 60,38.6260996 60,54.941452 C60,59.8598975 55.0528541,59.8598975 55.0528541,59.8598975 L31.3319239,59.8598975 C31.3319239,59.8598975 26.7019027,59.8598975 26.7019027,55.4332553 C26.7019027,53.9578454 26.7019027,51.3583138 26.7019027,51.3583138 M0.634249471,12.1545034 L25.8773784,12.1545034 L25.8773784,12.434916 L0.634249471,12.434916 L0.634249471,12.1545034 M3.86892178,50.7636995 C14.397463,50.7636995 26.7020806,50.7636995 26.7020806,50.7636995 L26.7020806,35.1288056 L14.6505188,35.1288056 L14.6505188,24.7306792 L26.7659726,24.7306792 L26.7659726,9.9765808 C26.7659726,9.9765808 26.9574017,6.03997329 31.0147992,6.03997329 L53.9148034,6.03997329 L53.9148034,2.95081967 C53.9148034,2.95081967 53.9148034,0.140143003 51.2473573,0.140143003 L3.17124736,0.140143003 C3.17124736,0.140143003 1.70530257e-12,0.140143003 1.70530257e-12,4.07494145 L1.70530257e-12,45.8782201 C1.70539926e-12,47.3609161 1.70530257e-12,50.7636995 3.86892178,50.7636995 Z M27.0880653,35.1288056 L42.6215645,35.1288056 L42.6215645,24.7306792 L27.0190275,24.7306792 M32.346723,35.1990632 L32.346723,48.3374534 L53.9769577,48.3374534 L53.9769577,12.1545034 L32.2197805,12.1545034 L32.2197805,24.3793911" id="Combined-Shape" stroke="#00A7FF" stroke-width="2"></path> </g> </svg></span><p class="card-text">Product Management</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=22" data-card="data-card"><span class="card-image"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><title>06. Location</title><path fill="#00a7ff" d="M24,0L4,16.53V39a9,9,0,0,0,9,9H35a9,9,0,0,0,9-9V16.53Zm4,46H20V34h8V46Zm14-7a7,7,0,0,1-7,7H30V32H18V46H13a7,7,0,0,1-7-7V17.47L24,2.61,42,17.47V39Z"></path></svg></span><p class="card-text">Real Estate</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=11" data-card="data-card"><span class="card-image"><svg width="52px" height="62px" viewBox="99 30 52 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(100.000000, 31.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M9.78391304,40.6477826 L1.48565217,52.6360435 C0.10173913,54.6316957 0.596086957,57.363 2.58521739,58.7416957 C4.57826087,60.1256087 7.30173913,59.6286522 8.68434783,57.633 L17.0113043,45.6121304" id="Stroke-39" stroke="#00A7FF" stroke-width="2"></path> <path d="M49.3995652,24.1383913 C49.3995652,37.0123043 38.9647826,47.447087 26.0921739,47.447087 C13.2195652,47.447087 2.78217391,37.0123043 2.78217391,24.1383913 C2.78217391,11.2657826 13.2195652,0.829695652 26.0921739,0.829695652 C38.9647826,0.829695652 49.3995652,11.2657826 49.3995652,24.1383913 L49.3995652,24.1383913 Z" id="Stroke-41" stroke="#00A7FF" stroke-width="2"></path> <path d="M26.1607826,11.2897826 C30.8994783,11.2897826 34.7407826,15.1297826 34.7407826,19.8697826 C34.7407826,24.611087 30.8994783,28.4536957 26.1607826,28.4536957 C21.4351304,28.4536957 17.5964348,24.611087 17.5964348,19.8697826 C17.5964348,15.1297826 21.4351304,11.2897826 26.1607826,11.2897826 L26.1607826,11.2897826 Z" id="Stroke-43" stroke="#00A7FF" stroke-width="2"></path> <path d="M9.75456522,40.6249565 C11.9002174,33.584087 18.4336957,28.454087 26.1606522,28.454087 C31.818913,28.454087 36.825,31.1958261 39.9580435,35.418 C41.0054348,36.8449565 41.8532609,38.4427826 42.4271739,40.1566957" id="Stroke-45" stroke="#00A7FF" stroke-width="2"></path> </g> </svg></span><p class="card-text">Recruiting</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=7" data-card="data-card"><span class="card-image"><svg width="76px" height="61px" viewBox="87 32 76 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(88.000000, 33.000000)" stroke-linecap="round" stroke-linejoin="round"> <path d="M70.4455135,0.392486486 L20.1152432,0.421675676 L0.811459459,19.2957297 L0.816324324,39.506 L20.124973,58.4092432 L70.4455135,58.4092432 C72.2860541,58.4092432 73.7844324,56.9757297 73.7844324,55.2114054 L73.7844324,3.59194595 C73.7844324,1.82113514 72.2860541,0.392486486 70.4455135,0.392486486 L70.4455135,0.392486486 Z" id="Stroke-83" stroke="#00A7FF" stroke-width="2"></path> <path d="M46,10.0698378 L46,49.7995676" id="Stroke-85" stroke="#00A7FF" stroke-width="2"></path> <path d="M58.9516216,15.3433514 L38.9067568,15.3465946 C35.0424324,15.3433514 31.8818919,18.5103784 31.8883784,22.3876757 C31.8964865,26.239027 35.0164865,29.3865946 38.9132432,29.4060541 L54.462973,29.4060541 C58.362973,29.419027 61.4797297,32.5698378 61.4878378,36.4244324 C61.5008108,40.3017297 58.337027,43.4655135 54.4727027,43.4622703 L34.4245946,43.4655135" id="Stroke-87" stroke="#00A7FF" stroke-width="2"></path> <path d="M13.6950811,25.2631351 C15.9815676,25.2517838 17.8626486,27.1215135 17.8626486,29.4112432 C17.8512973,31.6863784 15.9977838,33.5334054 13.7048108,33.5398919 C11.4280541,33.5415135 9.57778378,31.6798919 9.56481081,29.4112432 C9.57778378,27.1052973 11.4248108,25.2452973 13.6950811,25.2631351 L13.6950811,25.2631351 Z" id="Stroke-89" stroke="#00A7FF" stroke-width="2"></path> </g> </svg></span><p class="card-text">Sales</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=19" data-card="data-card"><span class="card-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#00a7ff;stroke-width:2;stroke-miterlimit:10;}</style><title>Untitled-25</title><path id="Flask" class="st0" d="M38.4,41c1.1,1.9,0.4,4.4-1.5,5.5c-0.6,0.3-1.3,0.5-2,0.5H13c-2.2,0-4-1.8-4-4c0-0.7,0.2-1.4,0.5-2 L19,25V1h10v24L38.4,41z"></path></svg></span><p class="card-text">Science &amp; BioTech</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=10" data-card="data-card"><span class="card-image"><svg width="63px" height="62px" viewBox="93 32 63 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g id="vector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(94.000000, 33.000000)" stroke-linecap="round" stroke-linejoin="round"><path d="M27,48.1969333 L27,57.5556" id="Stroke-47" stroke="#00A7FF" stroke-width="2"></path><path d="M33,48.1969333 L33,57.5556" id="Stroke-49" stroke="#00A7FF" stroke-width="2"></path><path d="M18.1901333,58 L43.1461333,58" id="Stroke-51" stroke="#00A7FF" stroke-width="2"></path><path d="M58.0390667,0.5368 L3.29373333,0.5368 C1.8444,0.5368 0.667066667,1.7608 0.667066667,3.27946667 L0.667066667,45.4541333 C0.667066667,46.9661333 1.8444,48.1968 3.29373333,48.1968 L58.0390667,48.1968 C59.4924,48.1968 60.6670667,46.9661333 60.6670667,45.4541333 L60.6670667,3.27946667 C60.6670667,1.7608 59.4924,0.5368 58.0390667,0.5368 L58.0390667,0.5368 Z" id="Stroke-53" stroke="#00A7FF" stroke-width="2"></path><polyline id="Stroke-55" stroke="#00A7FF" stroke-width="2" points="19.1068 32.9378667 10.5294667 24.3645333 19.1068 15.7938667"></polyline><polyline id="Stroke-57" stroke="#00A7FF" stroke-width="2" points="42.2344 32.9378667 50.8064 24.3645333 42.2344 15.7938667"></polyline><path d="M25.7136,35.2725333 L35.6376,13.4618667" id="Stroke-59" stroke="#00A7FF" stroke-width="2"></path></g></svg></span><p class="card-text">Software Development</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=25" data-card="data-card"><span class="card-image"><svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" stroke="#00a7ff" stroke-width="2"> <g fill="none" stroke="#00a7ff" stroke-width="2" transform="scale(0.99999) rotate(-45, 24.0014, 24.0002)"><path d="M41.509,8.98206c8.98206,8.98206 8.98206,23.5449 0,32.5269c-8.98206,8.98206 -23.5449,8.98206 -32.5269,0c-8.98206,-8.98206 -8.98206,-23.5449 -3.55271e-15,-32.5269c8.98206,-8.98206 23.5449,-8.98206 32.5269,-3.55271e-15" transform="translate(-1.24551, -1.24551)"></path></g><path d="M0,32.5c0,0 5.5,-11 13.5,-19c8,-8 19,-13.5 19,-13.5" transform="translate(7.7, 7.8)"></path><path d="M0,0l32.6,32.6" transform="translate(7.7, 7.7)"></path><path d="M3.3,26.5c-3.3,-7.3 -2.6,-15.4 2.5,-20.5c5.1,-5.1 13,-6 20.5,-2.5" transform="translate(20.7, 20.5)"></path><path d="M23,0c-0.7,6.7 -4,11 -8,15c-4,4 -8.8,7.2 -15,8" transform="translate(1, 1)"></path></g></svg></span><p class="card-text">Sports &amp; Volunteering</p></a><a class="card" href="https://web.switchapp.com/#/signup/1/?roleId=20" data-card="data-card"><span class="card-image"><svg width="28px" height="25px" viewBox="0 0 28 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>suitcaseforkknife</title>    <desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Suitcase-+-Fork-and-Knife" transform="translate(-25.000000, -326.000000)" stroke="#00A7FF"><g id="suitcaseforkknife" transform="translate(26.000000, 327.000000)"><g id="suitcase.1"><path d="M0,4.52173913 L26,4.52173913 L26,4.52173913 L26,18.0869565 C26,20.573913 23.9652174,22.6086957 21.4782609,22.6086957 L4.52173913,22.6086957 C2.03478261,22.6086957 0,20.573913 0,18.0869565 L0,4.52173913 L0,4.52173913 Z" id="Shape"></path><path d="M7.91304348,4.52173913 L8.59130435,1.69565217 C8.87391304,0.67826087 9.77826087,0 10.7956522,0 L15.2043478,0 C16.2217391,0 17.126087,0.67826087 17.4086957,1.69565217 L18.0869565,4.52173913" id="Shape"></path></g><g id="fork-and-knife.1" transform="translate(8.000000, 7.000000)"><path d="M8.42391304,12.5 L8.42391304,12.5 C7.96195652,12.5 7.60869565,12.1467391 7.60869565,11.6847826 L7.60869565,6.6576087 L7.14673913,6.19565217 C6.73913043,5.78804348 6.52173913,5.24456522 6.52173913,4.67391304 L6.52173913,2.7173913 C6.52173913,1.22282609 7.74456522,0 9.23913043,0 L9.23913043,0 L9.23913043,11.6847826 C9.23913043,12.1467391 8.88586957,12.5 8.42391304,12.5 Z" id="Shape"></path><path d="M4.61956522,0 L4.89130435,3.55978261 C4.89130435,4.07608696 4.56521739,4.56521739 4.23913043,4.94565217 L3.26086957,5.97826087 L3.26086957,11.6847826 C3.26086957,12.1467391 2.9076087,12.5 2.44565217,12.5 L2.44565217,12.5 C1.98369565,12.5 1.63043478,12.1467391 1.63043478,11.6847826 L1.63043478,5.97826087 L0.652173913,4.94565217 C0.27173913,4.56521739 0.0543478261,4.07608696 0,3.5326087 L0.27173913,0" id="Shape"></path><path d="M1.66666667,0 L1.66666667,3.80434783" id="Shape"></path><path d="M3.33333333,0 L3.33333333,3.80434783" id="Shape"></path></g></g></g></g></svg></span><p class="card-text">Travel &amp; Hospitality</p></a></div></div></div>
+      </div>
+      <div class="hero content-grid-media">
+         <div class="tile no-space is-wrap" data-swiper="data-swiper">
+            <div class="swiper-container">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/JenniferChin.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">“...InternSConnect's design is so user friendly. The layout made sifting through candidates quick and simple. It helped streamline our talent search and we hired our new DevOps Engineer!”</p>
+                           </div>
+                           <div>
+                              <p>Jennifer Chin</p>
+                              <p>DevOps Engineer, CBC</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/JohnCline.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"Looking for an outstanding engineer is a difficult process, but InternSConnect makes it really easy to find the needle in the haystack."</p>
+                           </div>
+                           <div>
+                              <p>John Cline</p>
+                              <p>Software Development Manager, eBay</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/JoeGraham.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"I tried a lot of job services, and they all seemed to give me a lot of jobs that had nothing to do with my career path. With InternSConnect, I only saw relevant postings. What a relief!"</p>
+                           </div>
+                           <div>
+                              <p>Joe Graham</p>
+                              <p>Software Engineer, eBay</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/ChristopherCurti.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"InternSConnect shows me interested, quality candidates who are looking to make a move from their current job. I get from interest to interview faster than ever before."</p>
+                           </div>
+                           <div>
+                              <p>Christopher Curti</p>
+                              <p>Account Executive, Yelp</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/RickPereira.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"It's often difficult to find elite talent via digital job marketplaces, but I found plenty of experienced candidates before ultimately settling on what has been an excellent choice."</p>
+                           </div>
+                           <div>
+                              <p>Rick Pereira</p>
+                              <p>VP of Strategic Partnerships, Crowdtap</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/SarahDabby.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">“When we started searching for a Senior Sales Manager, we thought the process would take months. Instead, we found the right candidate in our first interview thanks to InternSConnect.”</p>
+                           </div>
+                           <div>
+                              <p>Sarah Dabby</p>
+                              <p>Sr. Sales Manager, Clicktime</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/CharlieGray.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"I love InternSConnect's simple user interface. I can post jobs in minutes and communicate directly with candidates by lunchtime!"</p>
+                           </div>
+                           <div>
+                              <p>Charlie Gray</p>
+                              <p>President, Gray Scalable</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/IraSilberstein.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">"InternSConnect shows me interested, quality candidates who are looking to make a move from their current job. With InternSConnect, I get from interest to interview faster than ever before."</p>
+                           </div>
+                           <div>
+                              <p>Ira Silberstein</p>
+                              <p>SVP, Taboola</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="tile">
+                        <div class="notification is-child no-radius has-text-centered">
+                           <img class="image is-centered is-auto-height is-70x70 is-circle" src="https://www.switchapp.com/img/AdamNelson.jpg"/>
+                           <div class="flexible is-centered">
+                              <p class="title has-text-xsmall">“The hiring experience is easy, personal and extremely valuable. The talent on InternSConnect is energized, innovative and looking to join teams where they can have an impactful career."</p>
+                           </div>
+                           <div>
+                              <p>Adam Nelson</p>
+                              <p>CTO, Factr</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="swiper-controls">
+                  <div class="swiper-controls__wrapper">
+                     <div class="swiper-button-prev">
+                        <svg width="13" height="22" viewBox="8 3703 13 22" xmlns="http://www.w3.org/2000/svg">
+                           <path stroke="#00A7FF" stroke-width="2" fill="none" d="M20 3704l-10 10 10 10"/>
+                        </svg>
+                     </div>
+                     <div class="swiper-pagination"></div>
+                     <div class="swiper-button-next">
+                        <svg width="13" height="22" viewBox="579 214 13 22" xmlns="http://www.w3.org/2000/svg">
+                           <path stroke="#00A7FF" stroke-width="2" fill="none" d="M580 215l10 10-10 10"/>
+                        </svg>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="hero content-company">
+         <div class="hero-body is-medium">
+            <div class="container has-text-centered">
+               <h2 class="title plan-header is-medium has-text-centered has-text-light">Join the top companies using InternSConnect to build great teams.</h2>
+               <div class="grid is-company">
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/amazon.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/appboy.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/birchbox.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/bloomberg.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/cadre.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/cbInsights.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/century-link.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/closerIQ.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/comcast.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/complex.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/crowdtap.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/ebay.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/ESPN.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/evernote.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/expedia.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/havas.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/jawbone.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/Intersection.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/KMPG.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/LibertyMutual.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/lumosity.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/mealpal.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/mediacom.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/metromile.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/microsoft.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/nbc-universal.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/nielson.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/nylon.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/shopkeep.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/shutterstock.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/statefarm.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/taboola.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/verizon.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/wework.png"/></div>
+                  <div class="grid__item"><img src="https://www.switchapp.com/img/company-logo/yelp.png"/></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer class="footer hero is-primary-gradient-reverse">
+         <div class="container">
+            <div class="columns footer__grid">
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/guides/">InternSConnect Career Advice</a></li>
+                     <li><a href="https://www.switchapp.com/guides/marketing/">Marketing</a></li>
+                     <li><a href="https://www.switchapp.com/guides/sales/">Sales</a></li>
+                     <li><a href="https://www.switchapp.com/guides/software-development/">Software Development</a></li>
+                     <li><a href="https://www.switchapp.com/guides/finance/">Finance</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li><a href="https://www.switchapp.com/guides/business-development/">Bussiness Development</a></li>
+                     <li><a href="https://www.switchapp.com/guides/design/">Art & Design</a></li>
+                     <li><a href="https://www.switchapp.com/guides/data-science">Data Science</a></li>
+                     <li><a href="https://www.switchapp.com/guides/operations/">Operations</a></li>
+                     <li><a href="https://www.switchapp.com/guides/product-management/">Product Management</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/index.html">InternSConnect for Employers</a></li>
+                     <li><a href="https://web.switchapp.com/#/signup/1/">Post a Job for Free</a></li>
+                     <li><a href="https://web.switchapp.com/#/login">Employer Login</a></li>
+                     <li><a href="https://www.switchapp.com/faq/employer/">Employer FAQ</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/jobseeker.html">InternSConnect for Jobseekers</a></li>
+                     <li><a href="https://web.switchapp.com/#/signup-jobseeker/">Create Free Account</a></li>
+                     <li><a href="https://web.switchapp.com/#/login_jobseeker">Jobseeker Login</a></li>
+                     <li><a href="https://www.switchapp.com/faq/job-seeker/">Jobseeker FAQ</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/case-study/">Case Studies</a></li>
+                     <li><a href="https://www.switchapp.com/applause/">Applause</a></li>
+                     <li><a href="https://www.switchapp.com/nbcuniversal/">NBCUniversal</a></li>
+                     <li><a href="https://www.switchapp.com/majestyk/">Majestyk</a></li>
+                     <li><a href="https://www.switchapp.com/crowdtap/">Crowdtap</a></li>
+                     <li><a href="https://www.switchapp.com/sneakers/">Sneakers</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/jobs/jobfunctions/">Jobs by Function</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/all/all/account-executive-%252f-sales-executive/">Account Executive / Sales Executive</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/all/all/account-management-%252f-customer-success/">Account Management / Customer Success</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/all/all/backend-development/">Backend Development</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/all/all/front-end-development/">Front End Development</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/all/all/full-stack/">UX Design & Research</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/about/">About InternSConnect</a></li>
+                     <li><a href="https://www.switchapp.com/careers/">We are Hiring</a></li>
+                     <li><a href="http://blog.switchapp.com/">Blog</a></li>
+                     <li><a href="mailto:hello@switchapp.com">Contact Us</a></li>
+                     <li><a href="https://www.switchapp.com/terms/">Terms</a></li>
+                     <li><a href="https://www.switchapp.com/privacy-policy/">Privacy Policy</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <ul class="list list--white">
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/jobs/states/">Jobs by State</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/new-york-ny/">New York, NY</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/san-francisco-ca/">San Francisco, CA</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/newark-nj/">Newark, NJ</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/redwood-city-ca/">Redwood City, CA</a></li>
+                     <li><a href="https://www.switchapp.com/jobs/emeryville-ca/">Emeryville, CA</a></li>
+                     <li class="has-text-bold"><a href="https://www.switchapp.com/jobs/companies/">Jobs by Company</a></li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <p>© 2017 InternSConnect Inc.</p>
+                  <p>Headquarters: <br/>10 West 18th Street.<br/>3rd Floor. New York, NY. 10011</p>
+                  <p> Kiev Office: <br/>Kozhumiatska Street, 10. <br/>Kiev. Ukraine</p>
+               </div>
+               <div class="column">
+                  <div class="nav nav-social"><a class="nav-item" href="https://www.facebook.com/GetSwitch/" target="_blank"><img src="https://www.switchapp.com/img/fb-btn.png"/></a><a class="nav-item" href="https://www.instagram.com/getswitch/" target="_blank"><img src="https://www.switchapp.com/img/insta-btn.png"/></a><a class="nav-item" href="https://twitter.com/getswitch" target="_blank"><img src="https://www.switchapp.com/img/twitter-btn.png"/></a><a class="nav-item" href="https://www.linkedin.com/company/switch-inc" target="_blank"><img src="https://www.switchapp.com/img/linkdn-btn.png"/></a></div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <div class="modal is-centered" id="modalApplicant">
+         <div class="modal-content">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Pay Per Applicant</h4>
+            </div>
+            <div class="columns modal-columns" id="contentPkgCard"></div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <div class="modal is-centered" id="modalPlanFree">
+         <div class="modal-content">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Free</h4>
+            </div>
+            <ul class="decorate-list mb45">
+               <li>Connect with up to 2 new job seekers each week per job.</li>
+               <li>Post an unlimited number of jobs for an unlimited time.</li>
+               <li>Use of all InternSConnect features, including in-app messaging and candidate recommendations.</li>
+               <li>View unlimited candidates with a partial profiles, including past work experience and skills.</li>
+               <li>Upgrade at anytime to one of our competitive pricing plans to view complete profiles and connect with more candidates.</li>
+            </ul>
+            <div class="has-text-centered"><a class="button is-primary is-medium" href="https://web.switchapp.com/#/signup/1/">Post Job For Free</a></div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <div class="modal is-centered" id="modalPayPerHire">
+         <div class="modal-content">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Pay Per Hire</h4>
+            </div>
+            <ul class="decorate-list mb45">
+               <li>Post an unlimited number of jobs for an unlimited time, with no upfront fees.</li>
+               <li>Once you make a successful hire, you pay 10% of the first year’s salary to InternSConnect.</li>
+               <li>InternSConnect offers a 90 day money back guarantee on any hire.</li>
+               <li>There is no long term commitment to Pay Per Hire, you can change or cancel your plan at any time.</li>
+            </ul>
+            <div class="has-text-centered"><a class="button is-primary is-medium" href="https://web.switchapp.com/#/signup/1/?planType=2">Sign Up Now</a></div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <div class="modal is-centered" id="resetPassword">
+         <div class="modal-content" style="max-width: 38rem;">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Reset Password</h4>
+               <p>We will send you an email with a link to reset your password.</p>
+               <P>This may take a minute.</P>
+               <p><span>Your profile email is: &nbsp;</span><span class="currentEmail"></span></p>
+            </div>
+            <div class="has-text-centered"><a class="button is-primary is-medium submitResetPass">Submit</a></div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <div class="modal is-centered" id="successResetPass">
+         <div class="modal-content" style="max-width: 38rem;">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Email sent</h4>
+               <p>We have sent you an email with a link to reset your password.</p>
+               <p>Please check your inbox.</p>
+            </div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <div class="modal is-centered" id="failedResetPass">
+         <div class="modal-content" style="max-width: 38rem;">
+            <div class="has-text-centered">
+               <h4 class="modal-title-divider">Request failed</h4>
+               <p><span>Something wrong, please try again or contact &nbsp;</span><a href="mailto:Switch%3chello@switchapp.com%3e?subject='Switch Web App Support: reset password'">support</a></p>
+            </div>
+            <button class="modal-close">
+               <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#00A7FF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M.538.538l16.58 16.58M17.462.538L.882 17.118"/>
+                  </g>
+               </svg>
+            </button>
+         </div>
+      </div>
+      <script src="https://www.switchapp.com/libs/swiper/dist/js/swiper.min.js"></script><script src="https://www.switchapp.com/libs/jquery/dist/jquery.min.js"></script><script src="https://www.switchapp.com/libs/js-cookie/src/js.cookie.js"></script><script src="https://www.switchapp.com/libs/scrollwatch/dist/ScrollWatch-1.2.0.min.js"></script><script src="https://www.switchapp.com/js/main.js"></script><script src="https://www.switchapp.com/js/mdetect.js"></script><script id="role-card-template" type="text/template"><a class="card" href="{{:url}}" data-card="data-card"><span class="card-image">{{:icon}}</span><p class="card-text">{{:name}}</p></a></script><script id="pkg-card-template" type="text/template"><div class="column box"><div class="box-header has-text-centered"><p>{{:name}}</p></div><div class="box-content has-text-centered"><p>{{:credits}} applicants</p><p class="has-text-medium">${{:price}}</p><small class="has-text-primary">{{:percent_discount}}</small></div><div class="box-footer has-text-centered"><a class="button is-primary is-medium has-text-medium has-text-uppercase" href="{{:url}}"><span>Select</span></a></div></div></script><script src="js/index.js"></script><script>var swiper = new Swiper('.swiper-container', {
+         speed: 400,
+         loop: true,
+         pagination: '.swiper-pagination',
+         nextButton: '.swiper-button-next',
+         prevButton: '.swiper-button-prev'
+         });
+      </script>
+   </body>
+</html>
