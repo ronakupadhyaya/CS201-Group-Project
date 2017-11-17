@@ -8,17 +8,26 @@
       <title>Company Sign Up</title>
       <script>
       function validate() {
-    	  console.log("Here");
           var xhttp = new XMLHttpRequest();
-          xhttp.open("GET", "validateCompanySignIn.jsp?cname=" + document.myform.cname.value + "&email=" + document.myform.email.value
-        		  + "&password=" + document.myform.password.value + "&website=" + document.myform.website.value
-        		  + "&compdescription=" + document.myform.compdescription.value, false);
+          var cname = document.getElementById("INPUT_61").value;
+          var name = document.getElementById("INPUT_66").value;
+          var email = document.getElementById("INPUT_80").value;
+          var password = document.getElementById("INPUT_85").value;
+          var website = document.getElementById("INPUT_90").value;
+          var description = document.getElementById("INPUT_94").value;
+          xhttp.open("GET", "EmployerServlet?cname=" + cname + "&name=" + name + "&email=" + email
+        		  + "&password=" + password + "&website=" + website
+        		  + "&compdescription=" + description, false);
           xhttp.send();
-    	  if (xhttp.responseText.trim().length > 0) {
-            document.getElementById("formerror").innerHTML = xhttp.responseText;
-            return false;
+          var response = xhttp.responseText.trim();
+    	  if (response == "valid") {
+    		  window.location.href="HomeCompany.jsp";   
           }
-    	  window.location.href="HomeCompany.jsp";
+    	  else{
+    		  document.getElementById("formerror").innerHTML = xhttp.responseText;
+    	  }
+    	  
+    	  return false;
       }
     </script>
    </head>
@@ -39,7 +48,8 @@
 	            <div id="DIV_56">
 	               <div id="DIV_57">
 	                  <div id="DIV_58">
-	                  <form name="companyform" action="HomeCompany.jsp" method="POST" onsubmit="return validate();">
+	                  <div id = "formerror" ></div>
+	                  <form name="companyform" method = "GET" onsubmit="return validate();">
 	                     <div id="DIV_59">
 	                        <div id="DIV_60">
 	                           <input name="cname" id="INPUT_61" />
@@ -47,27 +57,13 @@
 	                              <!-- ngRepeat: match in matches track by $index -->
 	                           </ul>
 	                           <div id="DIV_63">
-	                              <span id="SPAN_64">Company Name</span>
+	                              <span id="SPAN_64">Company Name*</span>
 	                           </div>
 	                        </div>
 	                        <div id="DIV_65">
-	                           <input type="text" name="phone_number" maxlength="24" id="INPUT_66" />
+	                           <input type="text" name="name" maxlength="24" id="INPUT_66" />
 	                           <div id="DIV_67">
-	                              <span id="SPAN_68">Phone number</span>
-	                           </div>
-	                        </div>
-	                     </div>
-	                     <div id="DIV_69">
-	                        <div id="DIV_70">
-	                           <input type="text" name="first_name" id="INPUT_71" />
-	                           <div id="DIV_72">
-	                              <span id="SPAN_73">First name</span>     
-	                           </div>
-	                        </div>
-	                        <div id="DIV_74">
-	                           <input type="text" name="last_name" id="INPUT_75" />
-	                           <div id="DIV_76">
-	                              <span id="SPAN_77">Last name</span>
+	                              <span id="SPAN_68">Recruiter Name</span>
 	                           </div>
 	                        </div>
 	                     </div>
@@ -82,7 +78,7 @@
 	                        <div id="DIV_84">
 	                           <input type="password" name="password" id="INPUT_85" />
 	                           <div id="DIV_86">
-	                              <span id="SPAN_87">Choose a password</span>
+	                              <span id="SPAN_87">Choose a password*</span>
 	                           </div>
 	                        </div>
 	                     </div>
@@ -90,7 +86,7 @@
 	                        <div id="DIV_89">
 	                           <input type="text" name="website" id="INPUT_90" />
 	                           <div id="DIV_91">
-	                              <span id="SPAN_92">Website</span>
+	                              <span id="SPAN_92">Website*</span>
 	                           </div>
 	                        </div>
 	                        <div id="DIV_93">

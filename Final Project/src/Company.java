@@ -2,6 +2,7 @@
 public class Company {
 
 	private String companyname;
+	private String recruitername;
 	private String email;
 	private String password;
 	private String website;
@@ -12,6 +13,12 @@ public class Company {
 	}
 	public void setCompanyname(String companyname) {
 		this.companyname = companyname;
+	}
+	public String getRecruitername() {
+		return recruitername;
+	}
+	public void setRecruitername(String recruitername) {
+		this.recruitername = recruitername;
 	}
 	public String getEmail() {
 		return email;

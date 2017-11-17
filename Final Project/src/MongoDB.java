@@ -39,7 +39,7 @@ public class MongoDB {
 		String calendarUrl = user.getCalendarUrl();
 		ArrayList<String> jobTypes = user.getJobTypes();
 		ArrayList<String> languages = user.getLanguages();
-		ArrayList<String> workExperience = user.getWorkExperience();
+		String workExperience = user.getWorkExperience();
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("users");
 		Document mongoDocument = new Document("firstName", firstName)
@@ -84,6 +84,7 @@ public class MongoDB {
 		connect("mongodb://user:user@ds125255.mlab.com:25255/cs201");
 		
 		String companyname = company.getCompanyname();
+		String recruitername = company.getRecruitername();
 		String email = company.getEmail();
 		String password = company.getPassword();
 		String website = company.getWebsite();
@@ -91,6 +92,7 @@ public class MongoDB {
 		
 		MongoCollection<Document> mongoCollection = mongoDatabase.getCollection("companies");
 		Document mongoDocument = new Document("companyname", companyname)
+									  .append("recruitername", recruitername)
 									  .append("email", email)
 									  .append("password", password)
 									  .append("website", website)
@@ -294,7 +296,7 @@ public class MongoDB {
 		String calendarUrl = "";
 		ArrayList<String> jobTypes = null;
 		ArrayList<String> languages = null;
-		ArrayList<String> workExperience = null;
+		String workExperience = null;
 		
 		try {
 			if(mongoCursor.hasNext()) {
@@ -309,7 +311,7 @@ public class MongoDB {
 				calendarUrl = (String)mongoDocument.get("calendarUrl");
 				jobTypes = (ArrayList<String>)mongoDocument.get("jobTypes");
 				languages = (ArrayList<String>)mongoDocument.get("languages");
-				workExperience = (ArrayList<String>)mongoDocument.get("workExperience");
+				workExperience = (String)mongoDocument.get("workExperience");
 			}
 		} finally {
 			mongoCursor.close();
@@ -341,6 +343,7 @@ public class MongoDB {
 		MongoCursor<Document> mongoCursor = mongoCollection.find(findQuery).iterator();
 		
 		String companyname = "";
+		String recruitername = "";
 		String email = "";
 		String password = "";
 		String website = "";
@@ -350,6 +353,7 @@ public class MongoDB {
 			if(mongoCursor.hasNext()) {
 				Document mongoDocument = mongoCursor.next();
 				companyname = (String)mongoDocument.get("companyname");
+				recruitername = (String)mongoDocument.getString("recruitername");
 				email = (String)mongoDocument.get("email");
 				password = (String)mongoDocument.get("password");
 				website = (String)mongoDocument.get("website");
@@ -360,6 +364,7 @@ public class MongoDB {
 		}
 
 		company.setCompanyname(companyname);
+		company.setRecruitername(recruitername);
 		company.setEmail(email);
 		company.setPassword(password);
 		company.setWebsite(website);
