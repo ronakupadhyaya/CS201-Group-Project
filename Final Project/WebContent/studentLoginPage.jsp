@@ -6,8 +6,28 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel="stylesheet" type="text/css" href="css/loginPage.css">
       <title>Login</title>
-      <script>
-    </script>
+  <script>
+	function validate(){
+		var name = document.getElementById("INPUT_14").value;
+		var password = document.getElementById("INPUT_17").value;
+		
+		var xhttp = new XMLHttpRequest();
+		var request = "LoginValidate?username=" + name + "&password=" + password + "&type=" + "student";
+		xhttp.open("GET", request, false);
+		xhttp.send();
+		var response = xhttp.responseText.trim();
+		if(response == "valid"){
+			window.location.href="homeStudent.jsp";
+		}
+		//else if(response == "validCompany"){
+			//window.location.href="HomeCompany.jsp";
+		//}
+		else {
+			document.getElementById("error").innerHTML = xhttp.responseText.trim();
+		}
+		return false;
+	}
+</script>
    </head>
    <body>
       <div id="DIV_MAIN">
@@ -25,10 +45,11 @@
 				</h1>
 			</div>
 			<!-- ngIf: ctrl.welcomeMessage -->
-
+			 
 			<div id="DIV_9">
 				<div id="DIV_10">
-					<form id="FORM_11">
+				<div id = "error"></div>
+					<form name = "jobForm" method ="GET" onsubmit="return validate();">
 						<div id="DIV_12">
 							<label for="email" id="LABEL_13">
 								USERNAME
@@ -39,7 +60,7 @@
 							<label for="password" id="LABEL_16">
 								PASSWORD
 							</label>
-							<input type="password" name="password" id="INPUT_17" />
+							<input type="password" name = "password" id="INPUT_17" />
 						</div>
 						<div id="DIV_25">
 							<button type="submit" id="BUTTON_26">
