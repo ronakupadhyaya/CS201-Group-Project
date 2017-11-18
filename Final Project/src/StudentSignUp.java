@@ -1,4 +1,7 @@
+
+
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jdk.nashorn.internal.codegen.types.Type;
+
 /**
  * Servlet implementation class StudentSignUp
  */
@@ -16,46 +21,64 @@ public class StudentSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		System.out.println("Here");
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		PrintWriter pw = response.getWriter();
+		String name = request.getParameter("name");
+		String[] nameArray = name.split(" ");
+		String fname = "";
+		String lname = "";
+		if(name.length() >1) {
+			fname = nameArray[0];
+			lname = nameArray[1];
+		}
+		
 		String email = request.getParameter("email");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String degree = request.getParameter("degree");
 		String major = request.getParameter("major");
 		String type = request.getParameter("type");
-		String[] typeArray = type.split(",");
 		ArrayList<String> typeList = new ArrayList<String>();
-		for(int i = 0; i < typeArray.length; i++) {
-			typeList.add(typeArray[i]);
-			System.out.println(typeList.get(i));
+		if(type.contains("fullTime")) {
+			typeList.add("fullTime");
+		}
+		if(type.contains("partTime")) {
+			typeList.add("partTime");
+		}
+		if(type.contains("internship")) {
+			typeList.add("internship");
 		}
 		String languages = request.getParameter("languages");
 		String[] languageArray = languages.split(",");
 		ArrayList<String> languageList = new ArrayList<String>();
 		for(int i = 0; i < languageArray.length; i++) {
 			languageList.add(languageArray[i]);
-			System.out.println(languageList.get(i));
 		}
 		String experience = request.getParameter("experience");
+		if(name.length() == 0 || username.length() == 0 || password.length() == 0) {
+			pw.println("Required fields are blank.");
+			pw.flush();
+		}
+		else {
+			User user = new User();
+			user.setFirstName(fname);
+			user.setLastName(lname);
+			user.setEmail(email);
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setDegree(degree);
+			user.setMajor(major);
+			user.setJobTypes(typeList);
+			user.setLanguages(languageList);
+			user.setWorkExperience(experience);
+			
+			MongoDB.signUpUser(user);
+			pw.println("valid");
+			pw.flush();
+		}
 		
-		User user = new User();
-		user.setFirstName(fname);
-		user.setLastName(lname);
-		user.setEmail(email);
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setDegree(degree);
-		user.setMajor(major);
-		user.setJobTypes(typeList);
-		user.setLanguages(languageList);
-		//user.setWorkExperience(experience);
 		
-		MongoDB.signUpUser(user);
 		
-		System.out.println(fname + " " + lname + " " + email + " " + password + " " + degree + " " + major + " " + type + " " + languages + " " + experience);
 		
 	}
 

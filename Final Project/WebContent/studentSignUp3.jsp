@@ -8,27 +8,12 @@
       <title>Student Sign Up</title>
       <script>
 	function signup(){
-		alert("hi");
 		var name = document.getElementById("INPUT_11").value;
-		alert(name);
-		//var lname = document.getElementById("lname").value;
 		var email = document.getElementById("INPUT_20").value;
-		alert(email);
 		var username = document.getElementById("INPUT_15").value;
-		alert(username);
 		var password = document.getElementById("INPUT_24").value;
-		alert(password);
 		var degree = document.getElementById("Degree").value;
-		alert(degree);
 		var major = document.getElementById("Major").value;
-		alert(major);
-		/* var type = $('input[name="jobtype"]:checked').map(function() {
-   			 return $(this).val();
-		}).get(); */
-		//alert(type);
-		//var type = document.querySelector('input[name="type"]:checked').value
-		//alert(type);
-		//var languages = $('#languages').val();
 		var textinputs = document.querySelectorAll('input[type=checkbox]');
 		var arr = [];
 		var type = "";
@@ -38,18 +23,20 @@
 				type += textinputs[i].defaultValue; 
 			}
 		}
-		console.log(arr);
 		var languages = document.getElementById("languages").value;
-		alert(languages);
-		//var experience = $('#experience').val();
 		var experience = document.getElementById("experience").value;
-		alert(experience);
-		//alert(name + username + email + password + degree + major + type + languages + experience);
 		var xhttp = new XMLHttpRequest();
 		var request = "StudentSignUp?name=" + name + "&email=" + email + "&username=" + username + "&password=" + password + "&degree=" + degree + "&major=" + major + "&type=" + type + "&languages=" + languages + "&experience=" + experience;
-		xhttp.open("POST", request, false);
+		xhttp.open("GET", request, false);
 		xhttp.send();
-		
+		var response = xhttp.responseText.trim();
+  	  if (response == "valid") {
+  		  window.location.href="homeStudent.jsp";   
+        }
+  	  else{
+  		  document.getElementById("formerror").innerHTML = xhttp.responseText;
+  	  }
+  	  
 		return false;
 	}
 </script>
@@ -63,12 +50,14 @@
                </a>
             </header>
             <section id="SECTION_1">
+            
              <form id = "studentform" method="POST" onsubmit = "return signup();">
                <h1 id="H1_2">
                   Create Your Free InternSConnect Account
                </h1>
                <profile id="PROFILE-INFORMATION_3">
-                  <div id="DIV_4">
+               <div id = "formerror" > </div>
+                  <div id="DIV_4">  
                      <div id="DIV_5">
                         <h1 id="H1_6">
                            <span id="SPAN_7">1</span><span id="SPAN_8">Your Information</span>
@@ -77,13 +66,13 @@
                            <div id="DIV_10">
                               <input name="name" type="text" id="INPUT_11" />
                               <div id="DIV_12">
-                                 <span id="SPAN_13">Full name</span>
+                                 <span id="SPAN_13">Full name*</span>
                               </div>
                            </div>
                            <div id="DIV_14">
                               <input name="username" type="text" id="INPUT_15" />
                               <div id="DIV_16">
-                                 <span id="SPAN_17">Username</span>
+                                 <span id="SPAN_17">Username*</span>
                               </div>
                            </div>
                         </div>
@@ -100,7 +89,7 @@
                               RESET PASSWORD
                               </button>
                               <div id="DIV_26">
-                                 <span id="SPAN_27">Create a password</span>
+                                 <span id="SPAN_27">Create a password*</span>
                               </div>
                            </div>
                         </div>
