@@ -18,6 +18,13 @@ String keyword = request.getParameter("keyword");
 		j.setLanguages(languages);
 		
 		ArrayList<Job> matchedJobs = MongoDB.searchJob(j);
-		
 %>
+<body>
+	<%for(int i = 0; i < matchedJobs.size(); i++){ %>
+		<a href = "jobDisplay.jsp">
+		    <div class="grid__item"><img src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>" style="width:50%;height:50%;" ></div>
+		    <p><font color="black"><%=matchedJobs.get(i).getJobTitle() %></font></p>
+	    </a>
+	<%} %>
+</body>
 
