@@ -23,6 +23,11 @@ public class Calendar extends HttpServlet {
 		String companyname = request.getParameter("cname");
 		String title = request.getParameter("title");
 		String deadline = request.getParameter("deadline");
+		String[] pieces = deadline.split("-");
+		String year = pieces[0];
+		String month = pieces[1];
+		String date = pieces[2];
+		deadline = month + "/" + date + "/" + year;
 		String subject = companyname + " " + title;
 		
 		try{
