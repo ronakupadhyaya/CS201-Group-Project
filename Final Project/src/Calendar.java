@@ -23,6 +23,7 @@ public class Calendar extends HttpServlet {
 		String companyname = request.getParameter("cname");
 		String title = request.getParameter("title");
 		String deadline = request.getParameter("deadline");
+		String subject = companyname + " " + title;
 		
 		try{
         	String path = "calendar.csv";
@@ -30,21 +31,22 @@ public class Calendar extends HttpServlet {
         	StringBuilder sb = new StringBuilder();
         	if(!file.exists()){
         		PrintWriter pw = new PrintWriter(file);
-        		sb.append("Company");
+        		sb.append("Subject");
         		sb.append(',');
-        		sb.append("Job Title");
+        		sb.append("Start Date");
         		sb.append(',');
-        		sb.append("Deadline");
+        		sb.append("All Day Event");
         		sb.append('\n');
         		pw.write(sb.toString());
         		pw.close();
         	}
         	FileWriter fw = new FileWriter("calendar.csv", true);
-    		sb.append(companyname);
-    		sb.append(',');
-    		sb.append(title);
+    		sb.append(subject);
     		sb.append(',');
     		sb.append(deadline);
+    		sb.append(',');
+    		//since no time will be given, the event will be displayed in Google as an all day event
+    		sb.append("True");
     		sb.append('\n');
     		fw.write(sb.toString());
     		fw.close();
