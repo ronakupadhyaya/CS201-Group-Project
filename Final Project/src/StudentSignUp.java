@@ -5,11 +5,13 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jdk.nashorn.internal.codegen.types.Type;
 
@@ -23,6 +25,7 @@ public class StudentSignUp extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession();
 		String name = request.getParameter("name");
 		String[] nameArray = name.split(" ");
 		String fname = "";
@@ -65,6 +68,8 @@ public class StudentSignUp extends HttpServlet {
 			user.setLastName(lname);
 			user.setEmail(email);
 			user.setUsername(username);
+			//for calendar
+	        session.setAttribute("username", username);
 			user.setPassword(password);
 			user.setDegree(degree);
 			user.setMajor(major);
@@ -74,6 +79,9 @@ public class StudentSignUp extends HttpServlet {
 			
 			MongoDB.signUpUser(user);
 			pw.println("valid");
+			//for calendar
+			RequestDispatcher dispatcher = request.getRequestDispatcher("calendar.jsp");
+	        dispatcher.forward(request, response);
 			pw.flush();
 		}
 		

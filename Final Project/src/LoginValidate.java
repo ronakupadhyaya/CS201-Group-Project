@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginValidate
@@ -24,6 +25,9 @@ public class LoginValidate extends HttpServlet {
 		String type = request.getParameter("type");
 		PrintWriter pw = response.getWriter();
 		System.out.println(username + " " + password + " " + type);
+		//for calendar
+		HttpSession session = request.getSession();
+        session.setAttribute("username", username);
 		if(type.equals("company")) {
 			if(MongoDB.companyLogin(username, password)) {
 				pw.println("valid");
@@ -38,6 +42,9 @@ public class LoginValidate extends HttpServlet {
 		else if (type.equals("student")) {
 			if(MongoDB.userLogin(username, password)) {
 				pw.println("valid");
+				//for calendar
+				RequestDispatcher dispatcher = request.getRequestDispatcher("calendar.jsp");
+		        dispatcher.forward(request, response);
 				pw.flush();
 			}
 			else {
