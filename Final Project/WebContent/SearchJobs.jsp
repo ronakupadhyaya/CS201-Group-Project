@@ -2,28 +2,26 @@
     pageEncoding="ISO-8859-1"%> 
 <%@ page import = "Test.*" %>    
 <%@ page import = "java.util.ArrayList" %>
+
  <% 
 String keyword = request.getParameter("keyword");
  System.out.println(keyword);
 		Job j = new Job();
 		j.setCompanyName(keyword);
+		j.setDescription(keyword);
 		j.setJobTitle(keyword);
-		ArrayList<String> types = new ArrayList<String>();
-		types.add(keyword);
-		j.setJobTypes(types);
-		j.setDegree(keyword);
-		j.setMajor(keyword);
-		ArrayList<String> languages = new ArrayList<String>();
-		languages.add(keyword);
-		j.setLanguages(languages);
+	
 		
-		ArrayList<Job> matchedJobs = MongoDB.searchJob(j);
+		ArrayList<Job> matchedJobs = MongoDB.searchJob2(j);
+
 %>
 <body>
-	<%for(int i = 0; i < matchedJobs.size(); i++){ %>
+	<%for(int i = 0; i < matchedJobs.size(); i++){ 
+		System.out.println(matchedJobs.get(i).getCompanyName());
+	%>
 		<a href = "jobDisplay.jsp">
-		    <div class="grid__item"><img src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>" style="width:50%;height:50%;" ></div>
-		    <p><font color="black"><%=matchedJobs.get(i).getJobTitle() %></font></p>
+		    <div class="grid__item"><img src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>" style="width:25%;height:25%;" ></div>
+		    <p><font color="black"><%=matchedJobs.get(i).getDescription() %></font></p>
 	    </a>
 	<%} %>
 </body>

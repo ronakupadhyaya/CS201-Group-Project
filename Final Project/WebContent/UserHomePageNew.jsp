@@ -40,10 +40,10 @@
 		var keyword = document.getElementById("keyword").value;
 		alert(keyword);
 		var xhttp = new XMLHttpRequest();
-		var request = "StudentSignUp?keyword=" + keyword;
+		var request = "SearchJobs.jsp?keyword=" + keyword;
 		xhttp.open("GET", request, false);
 		xhttp.send();
-
+		document.getElementsByClassName("search results")[0].innerHTML = xhttp.responseText;
 		return false;
 	}
 </script>
@@ -368,7 +368,7 @@
             </div>
          </div>
       </footer>
-      <script src="https://www.switchapp.com/libs/swiper/dist/js/swiper.min.js"></script><script src="https://www.switchapp.com/libs/jquery/dist/jquery.min.js"></script><script src="https://www.switchapp.com/libs/js-cookie/src/js.cookie.js"></script><script src="https://www.switchapp.com/libs/scrollwatch/dist/ScrollWatch-1.2.0.min.js"></script><script src="https://www.switchapp.com/js/main.js"></script><script src="https://www.switchapp.com/js/mdetect.js"></script><script id="role-card-template" type="text/template"><a class="card" href="{{:url}}" data-card="data-card"><span class="card-image">{{:icon}}</span><p class="card-text">{{:name}}</p></a></script><script id="pkg-card-template" type="text/template"><div class="column box"><div class="box-header has-text-centered"><p>{{:name}}</p></div><div class="box-content has-text-centered"><p>{{:credits}} applicants</p><p class="has-text-medium">${{:price}}</p><small class="has-text-primary">{{:percent_discount}}</small></div><div class="box-footer has-text-centered"><a class="button is-primary is-medium has-text-medium has-text-uppercase" href="{{:url}}"><span>Select</span></a></div></div></script><script src="js/index.js"></script><script>var swiper = new Swiper('.swiper-container', {
+      <script src="https://www.switchapp.com/libs/swiper/dist/js/swiper.min.js"></script><script src="https://www.switchapp.com/libs/jquery/dist/jquery.min.js"></script><script src="https://www.switchapp.com/libs/js-cookie/src/js.cookie.js"></script><script src="https://www.switchapp.com/libs/scrollwatch/dist/ScrollWatch-1.2.0.min.js"></script><script src="https://www.switchapp.com/js/main.js"></script><script src="https://www.switchapp.com/js/mdetect.js"></script><script id="role-card-template" type="text/template"><a class="card" href="{url}" data-card="data-card"><span class="card-image">{icon}</span><p class="card-text">{name}</p></a></script><script id="pkg-card-template" type="text/template"><div class="column box"><div class="box-header has-text-centered"><p>{name}</p></div><div class="box-content has-text-centered"><p>{credits} applicants</p><p class="has-text-medium">${price}</p><small class="has-text-primary">{percent_discount}</small></div><div class="box-footer has-text-centered"><a class="button is-primary is-medium has-text-medium has-text-uppercase" href="{{:url}}"><span>Select</span></a></div></div></script><script src="js/index.js"></script><script>var swiper = new Swiper('.swiper-container', {
          speed: 400,
          loop: true,
          pagination: '.swiper-pagination',
