@@ -17,7 +17,7 @@
 		xhttp.send();
 		var response = xhttp.responseText.trim();
 		if(response == "valid"){
-			window.location.href="homeStudent.jsp";
+			window.location.href="UserHomePageNew.jsp";
 		}
 		//else if(response == "validCompany"){
 			//window.location.href="HomeCompany.jsp";
