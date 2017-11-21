@@ -79,8 +79,7 @@
                         </svg>
                      </button>
                      <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="employerSignUp.jsp">Save to Calendar</a></li>
-                        <li><a href="loginPage.jsp">Display Calendar</a></li>
+                        <li><a href="calendar.jsp">Display Calendar</a></li>
                      </ul>
                   </div>
                   <div class="dropdown">
