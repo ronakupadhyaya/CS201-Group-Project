@@ -30,7 +30,7 @@
 	    <!-- Custom Fonts -->
 	    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-	
+		<link rel="stylesheet" type="text/css" href="css/searchResults.css" />
 	    <link rel="stylesheet" type="text/css" href="css/searchButton.css" />
    </head>
 </head>
@@ -51,10 +51,20 @@
 <body>
    <br/> <br/>  <br/>
      <form id = "searchForm" class="form-inline mt-2 mt-md-0" method ="GET" onsubmit="return search();">
-         	<div style="margin: 0px auto;">
-	         	<input class="form-control mr-sm-2" id = "keyword" type="text" placeholder="Search Internships" aria-label="Search" style=" border-color: green; width: 300px; ">
-	            <button  class="btn btn-outline-success my-2 my-sm-0"  type="submit" style=" background-color: Green; color: Black; width: 300px; position:absolute.">Search</button>
-         	</div>         
+     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin: 0px auto;">
+     <div class="well search-result" style="margin: 0px auto;">
+        		<div class="input-group">
+        		<input id = "keyword" type="text" class="form-control" placeholder="Search Internships">
+			      <span class="input-group-btn">
+			        <button class="btn btn-info btn-lg" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                        Search
+                    </button>
+			      </span>
+			    </div>
+        	</div>
+        </div>
+    </div>     	      
    </form>  
    
    <body class="homepage">

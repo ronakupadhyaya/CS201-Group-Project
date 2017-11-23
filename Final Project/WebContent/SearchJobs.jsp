@@ -16,13 +16,32 @@ String keyword = request.getParameter("keyword");
 
 %>
 <body>
+<div class="container bootstrap snippet">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<%for(int i = 0; i < matchedJobs.size(); i++){ 
-		System.out.println(matchedJobs.get(i).getCompanyName());
+		
 	%>
-		<a href = "jobDisplay.jsp">
-		    <div class="grid__item"><img src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>" style="width:25%;height:25%;" ></div>
-		    <p><font color="black"><%=matchedJobs.get(i).getDescription() %></font></p>
-	    </a>
+	
+	 <div class="well search-result">
+            	<div class="row">
+            		<a href="#">
+                		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+	                    	<img class="img-responsive" src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>">
+                		</div>
+                		<div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
+	                    	<h3><%=matchedJobs.get(i).getDescription() %></h3>
+	                    	<p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc hendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>
+                		</div>
+            		</a>
+            	</div>
+      </div>
+		
+		
+	    
 	<%} %>
+	</div>
+	</div>
+	</div>
 </body>
 
