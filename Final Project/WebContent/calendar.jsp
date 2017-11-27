@@ -12,8 +12,7 @@
 		<%
 		    Object username = "test";//request.getAttribute("username");
 			User u = MongoDB.userProfilePage((String)username);
-			//String email = u.getEmail();
-			String email = "katelivingston02@gmail.com";
+			String email = u.getEmail();
 			String[] pieces = email.split("@");
 			String account = pieces[0];
 			String service = pieces[1];
@@ -25,11 +24,16 @@
 		<h1><%=u.getFirstName()%> <%=u.getLastName()%></h1>
 	</head>
 	<body>
-		<%for(int i = 0; i < u.getSavedJobs().size(); i++){ %>
-			<a href="/company/1441/life/" id="A_6"><img alt="Company Logo" height="122" width="122" src="<%=u.getSavedJobs().get(i).getImageUrl() %>" id="IMG_7" /></a>
-			<h2><%=u.getSavedJobs().get(i).getCompanyName()%></h2>
-			<h3><b><%=u.getSavedJobs().get(i).getJobTitle()%></b></h3>
-			<h5><%=u.getSavedJobs().get(i).getDeadline()%></h5>
+		<%for(int i = 0; i < u.getSavedJobs().size(); i++){ 
+			Job j = new Job();
+			j.setCompanyName(u.getSavedJobs().get(i));
+			ArrayList<Job> jobs = MongoDB.searchJob(j);
+			Job job = jobs.get(0);
+			%>
+			<a href="/company/1441/life/" id="A_6"><img alt="Company Logo" height="122" width="122" src="<%=job.getImageUrl() %>" id="IMG_7" /></a>
+			<h2><%=job.getCompanyName()%></h2>
+			<h3><b><%=job.getJobTitle()%></b></h3>
+			<h5><%=job.getDeadline()%></h5></br></br>
 		<%} %>
 		<%if(display == true){ %>
 			<center><iframe src="https://calendar.google.com/calendar/embed?src=<%=account%>%40<%=service%>&ctz=America/Los_Angeles" align="middle" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></center>
