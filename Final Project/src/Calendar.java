@@ -23,7 +23,7 @@ public class Calendar extends HttpServlet {
 		String companyname = request.getParameter("companyName");
 		Job j = new Job();
 		j.setCompanyName(companyname);
-		ArrayList<Job> jobs = MongoDB.searchJob2(j);
+		ArrayList<Job> jobs = MongoDB.searchJob(j);
 		Job job = jobs.get(0);
 		String title = job.getJobTitle();
 		String deadline = job.getDeadline();
