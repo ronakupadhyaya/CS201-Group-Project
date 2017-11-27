@@ -19,7 +19,17 @@ String keyword = request.getParameter("keyword");
 <div class="container bootstrap snippet">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<%for(int i = 0; i < matchedJobs.size(); i++){ 
+	<%
+		if(matchedJobs.size() == 0){ %>
+		<div class="well search-result">
+            	<div class="row">
+            		There are no search results. 
+            	</div>
+      </div>
+		
+			
+	<% }
+		for(int i = 0; i < matchedJobs.size(); i++){ 
 		
 	%>
 	
@@ -30,8 +40,8 @@ String keyword = request.getParameter("keyword");
 	                    	<img class="img-responsive" src=<%=matchedJobs.get(i).getImageUrl() %> alt="<%=matchedJobs.get(i).getCompanyName() %>">
                 		</div>
                 		<div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-	                    	<h3><%=matchedJobs.get(i).getDescription() %></h3>
-	                    	<p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc hendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>
+	                    	<h3><%=matchedJobs.get(i).getJobTitle() %></h3>
+	                    	<p><%=matchedJobs.get(i).getDescription() %></p>
                 		</div>
             		</a>
             	</div>
