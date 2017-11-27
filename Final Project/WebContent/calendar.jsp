@@ -8,24 +8,29 @@
 	<body style="background-color:#F0F8FF;">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Calendar</title>
+		<title>Profile</title>
 		<%
-		    //Object username = request.getAttribute("username");
-			//User u = MongoDB.userProfilePage((String)username);
+		    Object username = "test";//request.getAttribute("username");
+			User u = MongoDB.userProfilePage((String)username);
 			//String email = u.getEmail();
 			String email = "katelivingston02@gmail.com";
 			String[] pieces = email.split("@");
 			String account = pieces[0];
-			//System.out.println(account);
 			String service = pieces[1];
-			//System.out.println(service);
 			boolean display = true;
 			if(!service.equalsIgnoreCase("gmail.com") && !service.equalsIgnoreCase("usc.edu")){
 				display = false;
 			}
 		%>
+		<h1><%=u.getFirstName()%> <%=u.getLastName()%></h1>
 	</head>
 	<body>
+		<%for(int i = 0; i < u.getSavedJobs().size(); i++){ %>
+			<a href="/company/1441/life/" id="A_6"><img alt="Company Logo" height="122" width="122" src="<%=u.getSavedJobs().get(i).getImageUrl() %>" id="IMG_7" /></a>
+			<h2><%=u.getSavedJobs().get(i).getCompanyName()%></h2>
+			<h3><b><%=u.getSavedJobs().get(i).getJobTitle()%></b></h3>
+			<h5><%=u.getSavedJobs().get(i).getDeadline()%></h5>
+		<%} %>
 		<%if(display == true){ %>
 			<center><iframe src="https://calendar.google.com/calendar/embed?src=<%=account%>%40<%=service%>&ctz=America/Los_Angeles" align="middle" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></center>
 			<center><br/><br/><h3><b>How To View Your Application Deadlines</b></h3></center>
