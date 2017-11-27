@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="Test.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script>
+	function saveClick(companyName){
+		var request = "Calendar?companyName=" + companyName;
+		xhttp.open("GET", request, false);
+		xhttp.send();
+	}
+</script>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,6 +24,8 @@
   				job = allJobs.get(i);
   			}
   		}
+  		
+  	
 /*          job.setJobTitle("Software Engineering Intern, Summer 2018");
          job.setCompanyName("Google");
          ArrayList<String> myLocations = new ArrayList<String>();
@@ -37,6 +45,8 @@
          job.setImageUrl("https://cdn.vox-cdn.com/thumbor/wwiYgTK3hZw3r_RpC-0pGF25HS0=/800x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/4019454/googlelogo.0.jpg");
  */
          %>
+         
+         
       <title><%=job.getJobTitle() %> | InternSConnect</title>
       <link rel="stylesheet" type="text/css" href="css/jobDisplay2.css">
    </head>
@@ -70,7 +80,7 @@
                               	</h3>
 
                               <div id="DIV_43">
-                                 <button id="BUTTON_44"  onclick >
+                                 <button id="BUTTON_44"  onclick = "return saveClick('<%=job.getCompanyName() %>')" >
                                  <span id="SPAN_45">Save</span> <span id="SPAN_46">Save</span>
                                  </button>
                                  <div id="DIV_47">

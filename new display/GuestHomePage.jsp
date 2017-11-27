@@ -15,7 +15,7 @@
 
 <script>
 	function jobDisplay(id){
-		window.location = "/"+window.location.pathname.split("/")[1]+"/jobDisplay2.jsp?keyword=" + id;
+		window.location = "/"+window.location.pathname.split("/")[1]+"/jobDisplay2.jsp?keyword="+ id;
 		/* alert(id);
 		var xhttp = new XMLHttpRequest();
 		
